@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter, Match } from 'react-router';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-
-import Layout from './components/layout/layout';
+import Header from './components/layout/header';
 import SimpleReact from './components/simpleReact/simple-react';
-import ReactRedux from './components/reactRedux/react-redux';
+import TestRouter from './components/testRouter/test-router';
+
+// eslint-disable-next-line
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div>
+          <Header />
+          <Match exactly pattern="/" component={SimpleReact} />
+          <Match pattern="/test-router" component={TestRouter} />
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
 
 ReactDOM.render(
-  <Router history={browserHistory}>
-    <Route path="/" component={Layout}>
-      <IndexRoute component={SimpleReact} />
-      <Route path="/react-redux" component={ReactRedux} />
-    </Route>
-  </Router>,
+  <App />,
   document.getElementById('app'),
 );
+
+if (module.hot) {
+  module.hot.accept();
+}

@@ -9,8 +9,12 @@ const PATHS = {
 };
 
 module.exports = {
+  // devtool: 'eval',
+  // only use this for dev
+  // use this for production
+  devtool: 'source-map',
   entry: {
-    app: PATHS.app,
+    app: ['./src/index.jsx'],
   },
   output: {
     path: PATHS.build,
@@ -21,6 +25,12 @@ module.exports = {
   },
   performance: {
     hints: false,
+  },
+  devServer: {
+    historyApiFallback: true,
+    hot: true,
+    hotOnly: true,
+    stats: 'errors-only',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -38,20 +48,21 @@ module.exports = {
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        // This has effect on the react lib size
+        'NODE_ENV': JSON.stringify('production'),
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin(),
   ],
-  devServer: {
-    historyApiFallback: true,
-    hot: true,
-    hotOnly: true,
-    stats: 'errors-only',
-  },
   module: {
     rules: [
       {
         test: /(js|jsx)$/,
         exclude: /node_modules/,
         enforce: 'pre',
-        loader: ['babel-loader', 'eslint-loader?{rules:{semi:0}}'],
+        loader: ['react-hot-loader', 'babel-loader', 'eslint-loader?{rules:{semi:0}}'],
       },
       {
         test: /\.scss$/,
@@ -61,6 +72,13 @@ module.exports = {
           'resolve-url-loader',
           'sass-loader?sourceMap',
         ],
+      },
+      {
+        test: /\.(jpg|png)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 25000
+        },
       },
     ],
   },
