@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackTemplate = require('html-webpack-template');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const PATHS = {
   app: path.join(__dirname, 'src'),
@@ -9,10 +10,7 @@ const PATHS = {
 };
 
 module.exports = {
-  // devtool: 'eval',
-  // only use this for dev
-  // use this for production
-  devtool: 'source-map',
+  devtool: 'eval',
   entry: {
     app: ['./src/index.jsx'],
   },
@@ -48,13 +46,7 @@ module.exports = {
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        // This has effect on the react lib size
-        'NODE_ENV': JSON.stringify('production'),
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin(),
+    new StyleLintPlugin(),
   ],
   module: {
     rules: [
@@ -77,7 +69,7 @@ module.exports = {
         test: /\.(jpg|png)$/,
         loader: 'url-loader',
         options: {
-          limit: 25000
+          limit: 25000,
         },
       },
     ],
