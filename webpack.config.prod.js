@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackTemplate = require('html-webpack-template');
-const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
@@ -42,15 +41,15 @@ module.exports = {
     new ExtractTextPlugin('[name].[contenthash].css'),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': '"production"'
-      }
+        NODE_ENV: '"production"',
+      },
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: (module, count) => {
+      minChunks: (module) => {
         const userRequest = module.userRequest;
         return userRequest && userRequest.indexOf('node_modules') >= 0;
-      }
+      },
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
@@ -59,8 +58,8 @@ module.exports = {
       sourceMap: 'source-map',
       compress: {
         warnings: false,
-      }
-    })
+      },
+    }),
   ],
   module: {
     rules: [
