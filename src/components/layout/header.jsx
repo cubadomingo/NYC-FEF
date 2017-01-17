@@ -10,7 +10,7 @@ const Header = () => (
             <Link to={'/'} className="nav-link">Simple React</Link>
           </li>
           <li className="nav-item">
-            <Link to={'/test-router'} className="nav-link">React + Redux</Link>
+            <Link to={'/test-router'} className="nav-link">Test Router</Link>
           </li>
         </ul>
       </div>
