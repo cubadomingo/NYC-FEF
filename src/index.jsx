@@ -1,27 +1,13 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Match } from 'react-router';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/layout/header';
-import SimpleReact from './components/simpleReact/simple-react';
-import TestRouter from './components/testRouter/test-router';
-
-// eslint-disable-next-line
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <div>
-          <Header />
-          <Match exactly pattern="/" component={SimpleReact} />
-          <Match pattern="/test-router" component={TestRouter} />
-        </div>
-      </BrowserRouter>
-    );
-  }
-}
+import { Provider } from 'react-redux';
+import Routes from './routes/index';
+import store from './store/index';
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <Routes />
+  </Provider>,
   document.getElementById('app'),
 );
 
