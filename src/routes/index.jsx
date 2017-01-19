@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Match } from 'react-router';
-import Header from '../components/layout/header';
+import NavBar from '../components/layout/navbar';
 import SimpleReact from '../components/simpleReact/simple-react';
 import TestRouter from '../components/testRouter/test-router';
 
@@ -10,7 +10,7 @@ export default class Routes extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Header />
+          <NavBar />
           <Match exactly pattern="/" component={SimpleReact} />
           <Match pattern="/test-router" component={TestRouter} />
         </div>
