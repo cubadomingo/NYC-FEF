@@ -19,7 +19,7 @@ export default class NavBar extends Component {
     const menuClass = this.state.isMenuOpen ? '' : 'collapse navbar-collapse justify-content-end';
 
     return (
-      <div>
+      <div className="container">
         <nav className="navbar navbar-toggleable-sm navbar-light justify-content-end">
           <div className="mr-auto">
             <Link to={'/'} className="navbar-brand">Financial Empowerment Foundation</Link>
@@ -38,13 +38,6 @@ export default class NavBar extends Component {
                   onClick={this.toggleMenu}
                   className="nav-link"
                 >Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to={'/about'}
-                  onClick={this.toggleMenu}
-                  className="nav-link"
-                >About</Link>
               </li>
               <li className="nav-item">
                 <Link
