@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Match } from 'react-router';
 import NavBar from '../components/layout/navbar';
+import Footer from '../components/layout/footer';
 import SimpleReact from '../components/simpleReact/simple-react';
-import TestRouter from '../components/testRouter/test-router';
 
 // eslint-disable-next-line
 export default class Routes extends Component {
@@ -12,7 +12,7 @@ export default class Routes extends Component {
         <div>
           <NavBar />
           <Match exactly pattern="/" component={SimpleReact} />
-          <Match pattern="/test-router" component={TestRouter} />
+          <Footer />
         </div>
       </BrowserRouter>
     );

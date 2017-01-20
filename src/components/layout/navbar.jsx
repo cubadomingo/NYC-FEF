@@ -21,8 +21,8 @@ export default class NavBar extends Component {
     return (
       <div>
         <nav className="navbar navbar-toggleable-sm navbar-light justify-content-end">
-          <div>
-            <Link to={'/'} className="navbar-brand">Financial Empowerement Foundation</Link>
+          <div className="mr-auto">
+            <Link to={'/'} className="navbar-brand">Financial Empowerment Foundation</Link>
 
             <button
               onClick={this.toggleMenu}
