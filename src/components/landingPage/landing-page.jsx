@@ -9,8 +9,8 @@ const Background = () => (
 const Information = () => (
   <div>
     <div className={`${styles.about} container`}>
-      <br />
       <h1 className="text-center">Our Mission</h1>
+      <br />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed
         pulvinar tellus. Morbi et iaculis leo, vitae gravida urna. Integer

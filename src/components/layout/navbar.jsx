@@ -23,12 +23,17 @@ export default class NavBar extends Component {
       <div className="container">
         <nav className={`${styles.navbar} navbar fixed-top navbar-toggleable-sm navbar-light justify-content-end`}>
           <div className="mr-auto">
-            <Link to={'/'} className="navbar-brand">Financial Empowerment Foundation</Link>
-
+            <Link
+              to={'/'}
+              className={`${styles.navbarText} navbar-brand`}
+            >
+              Financial Empowerment Foundation
+            </Link>
             <button
               onClick={this.toggleMenu}
               className="navbar-toggler navbar-toggler-right"
-            ><span className="navbar-toggler-icon" /></button>
+            > <span className="navbar-toggler-icon" />
+            </button>
           </div>
 
           <div className={menuClass}>
