@@ -99,33 +99,6 @@ const Leadership = () => (
   </div>
 )
 
-const Programs = () => (
-  <div className={`${styles.blogEvents} container-fluid`}>
-    <div className="container">
-      <div className="row">
-        <div className="col-md-4 text-center">
-          <br />
-          <h1>Events</h1>
-          <p>First 3 events will go here.</p>
-          <Link to={'/events'}>View All</Link>
-        </div>
-        <div className="col-md-4 text-center">
-          <br />
-          <h1>Blog</h1>
-          <p>Last 3 blog posts will go here.</p>
-          <Link to={'/events'}>View All</Link>
-        </div>
-        <div className="col-md-4 text-center">
-          <br />
-          <h1>Scholarships</h1>
-          <p>Last 3 blog posts will go here.</p>
-          <Link to={'/events'}>View All</Link>
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
 const Donate = () => (
   <div className={`${styles.donate} container-fluid`}>
     <div className="container">
@@ -144,7 +117,6 @@ const LandingPage = () => (
     <Background />
     <Information />
     <Leadership />
-    <Programs />
     <Donate />
   </div>
 );

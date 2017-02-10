@@ -1,5 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
 .footer {
+  h4 {
+    margin-bottom: 0;
+  }
+  ul {
+    padding: 0;
+    text-align: center;
+    list-style: none;
+    li {
+      font-family: abel, sans-serif;
+    }
+  }
+
+  padding: 20px;
+  height: 160px;
+  background-color: white;
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+.brand {
+  padding-right: 40px;
+  text-align: right;
+  border-right: 1px solid black;
 }
