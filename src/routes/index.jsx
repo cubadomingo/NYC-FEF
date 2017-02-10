@@ -10,6 +10,7 @@ export default class Routes extends Component {
     html.minHeight = '100%';
     html.position = 'relative';
     html.paddingBottom = '80px';
+    html.paddingTop = '56px';
   }
   render() {
     return (

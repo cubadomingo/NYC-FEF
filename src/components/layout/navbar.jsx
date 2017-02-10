@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import styles from './navbar.scss';
 
 export default class NavBar extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ export default class NavBar extends Component {
 
     return (
       <div className="container">
-        <nav className="navbar navbar-toggleable-sm navbar-light justify-content-end">
+        <nav className={`${styles.navbar} navbar fixed-top navbar-toggleable-sm navbar-light justify-content-end`}>
           <div className="mr-auto">
             <Link to={'/'} className="navbar-brand">Financial Empowerment Foundation</Link>
 

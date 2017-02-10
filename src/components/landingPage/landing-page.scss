@@ -1,12 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+.landingPage {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Pacifico', cursive;
+  }
+}
+
 .image {
   background: url('../../assets/images/landing-page-background.jpg');
-  height: 400px;
+  background-position: center top;
+  background-size: 100%;
+  height: 500px;
 }
 
 .about {
-  height: 400px;
+  width: 900px;
+  border-bottom: 1px;
+  border-bottom-style: solid;
+}
+
+.leadership {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.textbox {
+  margin-top: -60px;
+  padding: 10px;
+  padding-top: 60px;
+  background-color: #ededed;
+  border-radius: 5%;
+}
+
+.portrait {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.donate {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  background-color: #ededed;
 }
 
 .blogEvents {
-  height: 400px;
+  padding-bottom: 20px;
+  color: white;
+  background-color: #0275d8;
 }

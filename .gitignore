@@ -2,3 +2,4 @@ node_modules
 build
 .idea
 .eslintcache
+.DS_Store
