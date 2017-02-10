@@ -2,12 +2,28 @@
 
 
 .navbar {
-  font-family: 'Abel', cursive;
-  font-size: 18px;
+  font-family: 'Abel', sans-serif;
+  font-size: 20px;
   background-color: white;
+  height:85px;
 }
 
 .navbarText {
-  font-family: 'Abel', cursive;
-  font-family: 20px;
+  font-size: 24px;
+}
+
+.buttonDonate {
+  font-size: 20px;
+  margin-left: 10px;
+  color: #0275d8 !important;
+}
+
+.buttonVolunteer {
+  font-size: 20px;
+  color: white !important;
+  margin-left: 15px;
+}
+
+.navbarText {
+  font-family: 'Abel', sans-serif;
 }

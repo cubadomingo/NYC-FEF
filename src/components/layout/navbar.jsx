@@ -22,6 +22,7 @@ export default class NavBar extends Component {
     return (
       <div className="container">
         <nav className={`${styles.navbar} navbar fixed-top navbar-toggleable-sm navbar-light justify-content-end`}>
+
           <div className="mr-auto">
             <Link
               to={'/'}
@@ -43,21 +44,35 @@ export default class NavBar extends Component {
                   to={'/'}
                   onClick={this.toggleMenu}
                   className="nav-link"
-                >Home</Link>
+                >About Us</Link>
               </li>
               <li className="nav-item">
                 <Link
                   to={'/events'}
                   onClick={this.toggleMenu}
                   className="nav-link"
-                >Events</Link>
+                >Activities</Link>
               </li>
               <li className="nav-item">
                 <Link
-                  to={'/blog'}
+                  to={'/events'}
                   onClick={this.toggleMenu}
                   className="nav-link"
-                >Blog</Link>
+                >Get Involved</Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to={'/donate'}
+                  onClick={this.toggleMenu}
+                  className={`nav-link ${styles.buttonDonate} btn btn-outline-primary`}
+                >Donate</Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to={'/volunteer'}
+                  onClick={this.toggleMenu}
+                  className={`nav-link ${styles.buttonVolunteer} btn btn-primary`}
+                >Volunteer</Link>
               </li>
             </ul>
           </div>
