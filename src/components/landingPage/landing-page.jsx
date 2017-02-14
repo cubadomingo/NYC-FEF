@@ -99,10 +99,10 @@ const Leadership = () => (
   </div>
 )
 
-const Donate = () => (
+const GetInvolved = () => (
   <div className={`${styles.donate} container-fluid`}>
     <div className="container">
-      <h3>Want to help?</h3>
+      <h3 className="text-center">Get Involved</h3>
       <h5>Consider <Link to={'/donate'}>donating</Link> to our cause.</h5>
       <p>Vestibulum ante ipsum primis in faucibus orci luctus et
       ultrices posuere cubilia Curae; Sed leo risus, gravida vel placerat et,
@@ -117,7 +117,7 @@ const LandingPage = () => (
     <Background />
     <Information />
     <Leadership />
-    <Donate />
+    <GetInvolved />
   </div>
 );
 
