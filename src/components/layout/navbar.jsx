@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import styles from './navbar.scss';
 
 export default class NavBar extends Component {
@@ -25,7 +25,7 @@ export default class NavBar extends Component {
 
           <div className="mr-auto">
             <Link
-              to={'/'}
+              to="/"
               className={`${styles.navbarText} navbar-brand`}
             >
               Financial Empowerment Foundation
@@ -41,35 +41,35 @@ export default class NavBar extends Component {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link
-                  to={'/'}
+                  to="/#about-us"
                   onClick={this.toggleMenu}
                   className="nav-link"
                 >About Us</Link>
               </li>
               <li className="nav-item">
                 <Link
-                  to={'/events'}
+                  to="/activities"
                   onClick={this.toggleMenu}
                   className="nav-link"
                 >Activities</Link>
               </li>
               <li className="nav-item">
                 <Link
-                  to={'/events'}
+                  to="/get-involved"
                   onClick={this.toggleMenu}
                   className="nav-link"
                 >Get Involved</Link>
               </li>
               <li className="nav-item">
                 <Link
-                  to={'/donate'}
+                  to="/donate"
                   onClick={this.toggleMenu}
                   className={`nav-link ${styles.buttonDonate} btn btn-outline-primary`}
                 >Donate</Link>
               </li>
               <li className="nav-item">
                 <Link
-                  to={'/volunteer'}
+                  to="/volunteer"
                   onClick={this.toggleMenu}
                   className={`nav-link ${styles.buttonVolunteer} btn btn-primary`}
                 >Volunteer</Link>

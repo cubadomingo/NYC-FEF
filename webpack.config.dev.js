@@ -54,7 +54,7 @@ module.exports = {
         test: /(js|jsx)$/,
         exclude: /node_modules/,
         enforce: 'pre',
-        loader: ['react-hot-loader', 'babel-loader', 'eslint-loader?{rules:{semi:0}}'],
+        loader: ['react-hot-loader', 'babel-loader'],
       },
       {
         test: /\.scss$/,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import styles from './landing-page.scss';
 
 const Background = () => (
@@ -8,7 +8,7 @@ const Background = () => (
 
 const Information = () => (
   <div>
-    <div className={`${styles.about} container`}>
+    <div id="about-us" className={`${styles.about} container`}>
       <h1 className="text-center">Our Mission</h1>
       <br />
       <p>
@@ -54,7 +54,7 @@ const Leadership = () => (
           alt="portrait"
         />
         <div className={styles.textbox}>
-          <h2>Thomas Hill</h2>
+          <h3>Thomas Hill</h3>
           <p>
             Sed ultrices convallis mauris, et maximus nulla
             sagittis vitae. Vestibulum ante ipsum primis in faucibus orci luctus et
@@ -70,7 +70,7 @@ const Leadership = () => (
           alt="portrait"
         />
         <div className={styles.textbox}>
-          <h2>Paul Jackson</h2>
+          <h3>Paul Jackson</h3>
           <p>
             Sed ultrices convallis mauris, et maximus nulla sagittis vitae.
             Vestibulum ante ipsum primis in faucibus orci luctus et ultric
@@ -86,7 +86,7 @@ const Leadership = () => (
           alt="portrait"
         />
         <div className={styles.textbox}>
-          <h2>Giselle Davis</h2>
+          <h3>Giselle Davis</h3>
           <p>
             Sed ultrices convallis mauris, et maximus nulla
             sagittis vitae. Vestibulum ante ipsum primis in faucibus orci luctus et
@@ -102,12 +102,30 @@ const Leadership = () => (
 const GetInvolved = () => (
   <div className={`${styles.donate} container-fluid`}>
     <div className="container">
-      <h3 className="text-center">Get Involved</h3>
-      <h5>Consider <Link to={'/donate'}>donating</Link> to our cause.</h5>
-      <p>Vestibulum ante ipsum primis in faucibus orci luctus et
-      ultrices posuere cubilia Curae; Sed leo risus, gravida vel placerat et,
-      pretium eu risus.Sed scelerisque bibendum
-      fermentum. Nam condimentum tellus enim, ac lacinia nibh dapibus nec.</p>
+      <h1 className="text-center">Get Involved</h1>
+      <div className="row">
+        <div className="col-md-4">
+          <h5>Consider <Link to={'/donate'}>donating</Link> to our cause.</h5>
+          <p>Vestibulum ante ipsum primis in faucibus orci luctus et
+          ultrices posuere cubilia Curae; Sed leo risus, gravida vel placerat et,
+          pretium eu risus.Sed scelerisque bibendum
+          fermentum. Nam condimentum tellus enim, ac lacinia nibh dapibus nec.</p>
+        </div>
+        <div className="col-md-4">
+          <h5>Help us by volunteering.</h5>
+          <p>Vestibulum ante ipsum primis in faucibus orci luctus et
+          ultrices posuere cubilia Curae; Sed leo risus, gravida vel placerat et,
+          pretium eu risus.Sed scelerisque bibendum
+          fermentum. Nam condimentum tellus enim, ac lacinia nibh dapibus nec.</p>
+        </div>
+        <div className="col-md-4">
+          <h5>Subscribe to our newsletter.</h5>
+          <p>Vestibulum ante ipsum primis in faucibus orci luctus et
+          ultrices posuere cubilia Curae; Sed leo risus, gravida vel placerat et,
+          pretium eu risus.Sed scelerisque bibendum
+          fermentum. Nam condimentum tellus enim, ac lacinia nibh dapibus nec.</p>
+        </div>
+      </div>
     </div>
   </div>
 )
