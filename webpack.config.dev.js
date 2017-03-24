@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackTemplate = require('html-webpack-template');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const PATHS = {
   app: path.join(__dirname, 'src'),
@@ -39,14 +38,16 @@ module.exports = {
         integrity: 'sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ',
         crossorigin: 'anonymous',
       }],
+      meta: [{
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+      }],
       title: 'Demo app',
       appMountId: 'app',
-      mobile: true,
       inject: false,
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new StyleLintPlugin(),
   ],
   module: {
     rules: [

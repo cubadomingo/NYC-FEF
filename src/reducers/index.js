@@ -1,5 +1,5 @@
-const reducer = (state = {}) => (
+const rootReducer = (state = {}) => (
  state
 )
 
-export default reducer;
+export default rootReducer;

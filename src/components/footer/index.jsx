@@ -1,11 +1,11 @@
 import React from 'react';
-// import { Link } from 'react-router';
+import CSSModules from 'react-css-modules';
 import styles from './footer.scss';
 
 const Footer = () => (
-  <footer className={`${styles.footer} container text-center`}>
+  <footer className="container text-center" styleName="footer">
     <div className="row">
-      <div className={`${styles.brand} col-md-3`}>
+      <div className="col-md-3" styleName="brand">
         <h4>
           Financial
         </h4>
@@ -63,4 +63,4 @@ const Footer = () => (
   </footer>
 )
 
-export default Footer;
+export default CSSModules(Footer, styles)

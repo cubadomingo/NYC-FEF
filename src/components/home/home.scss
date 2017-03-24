@@ -1,0 +1,28 @@
+.background-image {
+  background-image: url('landing-page-background.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 800px;
+}
+
+.newsletter {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: black;
+  color: white;
+}
+
+.input {
+  display: inline-block;
+  width: 400px;
+}
+
+.button {
+  color: white;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: black;
+  color: white;
+}
