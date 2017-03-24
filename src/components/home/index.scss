@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+.background-image {
+  font-family: 'Poppins', sans-serif;
+  padding-top: 450px;
+  background-image: url('landing-page-background.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 800px;
+}
+
+.text-box {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  background-color: rgba(26, 26, 26, 0.9);
+}
+
+.text-box-white {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.text-top {
+  font-size: 50px;
+}
+
+.text-bottom {
+  margin-top: 35px;
+  font-size: 50px;
+}
+
+.text-small {
+  margin-top: 30px;
+  font-size: 25px;
+}
+
+.tagline {
+  font-family: 'Poppins', sans-serif;
+  background-color: #e5e5e5;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.subscribe {
+  font-family: 'Poppins', sans-serif;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.input {
+  display: inline-block;
+  width: 400px;
+}
+
+.button-donate {
+  margin-top: 10px;
+  font-size: 25px;
+  height: 50px;
+  width: 150px;
+  border: none;
+  background-color: white;
+  opacity: 0.9;
+}
+
+.button {
+  color: white;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: black;
+  color: white;
+}

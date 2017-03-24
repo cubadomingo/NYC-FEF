@@ -60,6 +60,8 @@ const Footer = () => (
         </ul>
       </div>
     </div>
+    <br />
+    <p> © 2017 Financial Empowerment Foundation | Website by Devin Osorio</p>
   </footer>
 )
 

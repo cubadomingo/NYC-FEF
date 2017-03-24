@@ -1,7 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
 .navbar {
+  font-family: 'Poppins', sans-serif;  
   height: 80px;
   background-color: white;
   opacity:0.95;
+}
+
+.navbar-button-solid {
+  background-color: black;
+  color: white;
+}
+
+.navbar-button-solid:hover {
+  border-color: black;
+  color: black;
+}
+
+.navbar-button {
+  border-color: black;
+}
+
+.navbar-button:hover {
+  border-color: black;
 }
 
 .nav-link-margin {
