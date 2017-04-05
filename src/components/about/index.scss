@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600');
+
+.background {
+  background-image: url('about.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  margin-bottom: -430px;
+}
+
+.main-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 60px;
+}
+
+.mission {
+  background-color: white;
+  border-bottom: 1px dashed black;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-top: 60px;
+}
+
+.text-box {
+  h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+  }
+  margin-bottom: 20px;
+  border-bottom: solid black 1px;
+}
+
+.philosophy {
+  color: black;
+  padding-top: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 40px;
+}
+
+.FAQ {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #e5e5e5;
+}
+
+.FAQ-container {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.question {
+  h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+  }
+  margin-top: 50px;
+}

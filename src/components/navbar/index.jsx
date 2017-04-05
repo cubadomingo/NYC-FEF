@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './navbar.scss';
 import CSSModules from 'react-css-modules';
+import { Link } from 'react-router-dom';
+import styles from './navbar.scss';
 
 const Navbar = () => (
   <nav styleName="navbar" className="navbar navbar-toggleable-md fixed-top
@@ -10,11 +11,26 @@ const Navbar = () => (
       type="button">
       <span className="navbar-toggler-icon"></span>
     </button>
-    <a className="navbar-brand" href="#">Financial Empowerment Foundation</a>
+    <Link className="navbar-brand" to="/">
+      Financial Empowerement Foundation
+    </Link>
     <div className="collapse navbar-collapse" id="navbarText">
       <ul className="navbar-nav ml-auto">
-        <li className="nav-item active">
-          <a styleName="nav-link-margin" className="nav-link" href="#">About Us</a>
+        <li className="nav-item">
+          <Link
+            styleName="nav-link-margin"
+            className="nav-link"
+            to="/">
+            Home
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link
+            styleName="nav-link-margin"
+            className="nav-link"
+            to="/about">
+            About Us
+          </Link>
         </li>
         <li className="nav-item">
           <a styleName="nav-link-margin" className="nav-link" href="#">Activities</a>

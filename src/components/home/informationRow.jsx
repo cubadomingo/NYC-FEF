@@ -1,5 +1,6 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
+import { Link } from 'react-router-dom';
 import styles from './informationRow.scss';
 import aboutImage from '../../assets/images/about.svg';
 import activitiesImage from '../../assets/images/activities.svg';
@@ -12,7 +13,9 @@ let About = () => (
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut efficitur nisi, in hendrerit nisi.
     </p>
-    <a styleName="info-button" className="btn btn-outline-secondary">Our Mission</a>
+    <Link to="/about" styleName="info-button" className="btn btn-outline-secondary">
+      About Us
+    </Link>
   </div>
 );
 

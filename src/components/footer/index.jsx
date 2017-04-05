@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CSSModules from 'react-css-modules';
 import styles from './footer.scss';
 
@@ -18,7 +19,11 @@ const Footer = () => (
         <p>New York City, NY</p>
       </div>
       <div className="col-md-3">
-        <h6 className="text-center">About Us</h6>
+        <h6 className="text-center">
+          <Link to="/about">
+            About Us
+          </Link>
+        </h6>
         <ul>
           <li>
             Mission
@@ -60,8 +65,6 @@ const Footer = () => (
         </ul>
       </div>
     </div>
-    <br />
-    <p> © 2017 Financial Empowerment Foundation | Website by Devin Osorio</p>
   </footer>
 )
 
