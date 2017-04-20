@@ -40,7 +40,7 @@ module.exports = {
       }],
       meta: [{
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+        content: 'width=device-width, initial-scale=1, shrink-to-fit=no',
       }],
       title: 'Demo app',
       appMountId: 'app',
@@ -55,7 +55,20 @@ module.exports = {
         test: /(js|jsx)$/,
         exclude: /node_modules/,
         enforce: 'pre',
-        loader: ['react-hot-loader', 'babel-loader'],
+        use: [
+          {
+            loader: 'react-hot-loader',
+          },
+          {
+            loader: 'babel-loader',
+          },
+          {
+            loader: 'eslint-loader',
+            options: {
+              emitError: true,
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
