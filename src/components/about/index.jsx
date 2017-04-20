@@ -8,10 +8,24 @@ let Mission = () => (
       <h2>Our Mission</h2>
     </div>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue, urna a convallis ullamcorper, ligula sem pulvinar arcu, tempor semper velit mi in magna. Mauris nec auctor odio. Donec ultrices lacus sed leo laoreet aliquam. Cras eu volutpat ante. Nulla aliquam volutpat felis, sed iaculis libero posuere a. Phasellus nec metus eu ligula fermentum accumsan. Nullam vehicula urna dolor, quis sagittis urna auctor at. Duis eget magna at erat hendrerit aliquam ut eu orci. Nullam sit amet sem molestie, dictum lectus sit amet, tempus mi. Sed faucibus bibendum maximus. Morbi ac dui sagittis, malesuada ex non, sagittis ex. Proin nec diam leo.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue, urna
+      a convallis ullamcorper, ligula sem pulvinar arcu, tempor semper velit mi
+      in magna. Mauris nec auctor odio. Donec ultrices lacus sed leo laoreet
+      aliquam. Cras eu volutpat ante. Nulla aliquam volutpat felis, sed iaculis
+      libero posuere a. Phasellus nec metus eu ligula fermentum accumsan.
+      Nullam vehicula urna dolor, quis sagittis urna auctor at. Duis eget magna
+      at erat hendrerit aliquam ut eu orci. Nullam sit amet sem molestie,
+      dictum lectus sit amet, tempus mi. Sed faucibus bibendum maximus. Morbi
+      ac dui sagittis, malesuada ex non, sagittis ex. Proin nec diam leo.
     </p>
     <p>
-      Praesent dictum lacus turpis, eget pulvinar mauris semper eu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus dolor enim, condimentum ac accumsan at, congue sed elit. Aenean tincidunt non lacus in tincidunt. Quisque non luctus odio. Suspendisse tristique ipsum ex, eu bibendum mauris scelerisque sed. Sed in risus id dui tristique feugiat. In vel eleifend urna. Sed a bibendum ante. Proin sed pulvinar est.
+      Praesent dictum lacus turpis, eget pulvinar mauris semper eu. Vestibulum
+      ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+      Curae; Aliquam erat volutpat. Vivamus dolor enim, condimentum ac accumsan
+      at, congue sed elit. Aenean tincidunt non lacus in tincidunt. Quisque non
+      luctus odio. Suspendisse tristique ipsum ex, eu bibendum mauris
+      scelerisque sed. Sed in risus id dui tristique feugiat. In vel eleifend
+      urna. Sed a bibendum ante. Proin sed pulvinar est.
     </p>
   </div>
 );
@@ -24,10 +38,24 @@ let Philosophy = () => (
       <h2 className="text-right">Our Philosophy</h2>
     </div>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue, urna a convallis ullamcorper, ligula sem pulvinar arcu, tempor semper velit mi in magna. Mauris nec auctor odio. Donec ultrices lacus sed leo laoreet aliquam. Cras eu volutpat ante. Nulla aliquam volutpat felis, sed iaculis libero posuere a. Phasellus nec metus eu ligula fermentum accumsan. Nullam vehicula urna dolor, quis sagittis urna auctor at. Duis eget magna at erat hendrerit aliquam ut eu orci. Nullam sit amet sem molestie, dictum lectus sit amet, tempus mi. Sed faucibus bibendum maximus. Morbi ac dui sagittis, malesuada ex non, sagittis ex. Proin nec diam leo.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue, urna
+      a convallis ullamcorper, ligula sem pulvinar arcu, tempor semper velit mi
+      in magna. Mauris nec auctor odio. Donec ultrices lacus sed leo laoreet
+      aliquam. Cras eu volutpat ante. Nulla aliquam volutpat felis, sed iaculis
+      libero posuere a. Phasellus nec metus eu ligula fermentum accumsan.
+      Nullam vehicula urna dolor, quis sagittis urna auctor at. Duis eget magna
+      at erat hendrerit aliquam ut eu orci. Nullam sit amet sem molestie,
+      dictum lectus sit amet, tempus mi. Sed faucibus bibendum maximus. Morbi
+      ac dui sagittis, malesuada ex non, sagittis ex. Proin nec diam leo.
     </p>
     <p>
-      Praesent dictum lacus turpis, eget pulvinar mauris semper eu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus dolor enim, condimentum ac accumsan at, congue sed elit. Aenean tincidunt non lacus in tincidunt. Quisque non luctus odio. Suspendisse tristique ipsum ex, eu bibendum mauris scelerisque sed. Sed in risus id dui tristique feugiat. In vel eleifend urna. Sed a bibendum ante. Proin sed pulvinar est.
+      Praesent dictum lacus turpis, eget pulvinar mauris semper eu. Vestibulum
+      ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+      Curae; Aliquam erat volutpat. Vivamus dolor enim, condimentum ac accumsan
+      at, congue sed elit. Aenean tincidunt non lacus in tincidunt. Quisque non
+      luctus odio. Suspendisse tristique ipsum ex, eu bibendum mauris
+      scelerisque sed. Sed in risus id dui tristique feugiat. In vel eleifend
+      urna. Sed a bibendum ante. Proin sed pulvinar est.
     </p>
   </div>
 );
@@ -43,31 +71,44 @@ let FAQ = () => (
       <div styleName="question">
         <h4 className="text-left">Vivamus dolor enim, condimentum ac accumsan at?</h4>
         <p>
-          Sed in risus id dui tristique feugiat. In vel eleifend urna. Sed a bibendum ante. Proin sed pulvinar.
+          Sed in risus id dui tristique feugiat. In vel eleifend urna. Sed a
+          bibendum ante. Proin sed pulvinar.
         </p>
       </div>
       <div styleName="question">
-        <h4 className="text-left">Morbi ac dui sagittis, malesuada ex non, sagittis ex. Proin nec diam leo.?</h4>
+        <h4 className="text-left">Morbi ac dui sagittis, malesuada ex non,
+          sagittis ex. Proin nec diam leo.?
+        </h4>
         <p>
-          Duis eget magna at erat hendrerit aliquam ut eu orci. Nullam sit amet sem molestie, dictum lectus sit amet, tempus mi. Sed faucibus bibendum maximus. Morbi ac dui sagittis, malesuada ex non, sagittis ex. Proin nec diam leo.
+          Duis eget magna at erat hendrerit aliquam ut eu orci. Nullam sit amet
+          sem molestie, dictum lectus sit amet, tempus mi. Sed faucibus
+          bibendum maximus. Morbi ac dui sagittis, malesuada ex non, sagittis
+          ex. Proin nec diam leo.
         </p>
       </div>
       <div styleName="question">
-        <h4 className="text-left">Sed in risus id dui tristique feugiat. In vel eleifend urna. Sed a bibendum ante. Proin sed pulvinar est?</h4>
+        <h4 className="text-left">Sed in risus id dui tristique feugiat. In vel
+          eleifend urna. Sed a bibendum ante. Proin sed pulvinar est?</h4>
         <p>
-          Sed in risus id dui tristique feugiat. In vel eleifend urna. Sed a bibendum ante. Proin sed pulvinar.
+          Sed in risus id dui tristique feugiat. In vel eleifend urna. Sed a
+          bibendum ante. Proin sed pulvinar.
         </p>
       </div>
       <div styleName="question">
-        <h4 className="text-left">Donec ultrices lacus sed leo laoreet aliquam. Cras eu volutpat ante?</h4>
+        <h4 className="text-left">Donec ultrices lacus sed leo laoreet aliquam.
+          Cras eu volutpat ante?
+        </h4>
         <p>
-          Sed in risus id dui tristique feugiat. In vel eleifend urna. Sed a bibendum ante. Proin sed pulvinar.
+          Sed in risus id dui tristique feugiat. In vel eleifend urna. Sed a
+          bibendum ante. Proin sed pulvinar.
         </p>
       </div>
       <div styleName="question">
-        <h4 className="text-left">Vivamus dolor enim, condimentum ac accumsan at?</h4>
+        <h4 className="text-left">Vivamus dolor enim, condimentum ac accumsan
+          at?</h4>
         <p>
-          Sed in risus id dui tristique feugiat. In vel eleifend urna. Sed a bibendum ante. Proin sed pulvinar.
+          Sed in risus id dui tristique feugiat. In vel eleifend urna. Sed a
+          bibendum ante. Proin sed pulvinar.
         </p>
       </div>
     </div>
@@ -79,7 +120,7 @@ FAQ = CSSModules(FAQ, styles);
 const About = () => (
   <div>
     <div styleName="background" />
-    <h1 styleName="main-text" className="text-center">WHAT WE'RE ABOUT</h1>
+    <h1 styleName="main-text" className="text-center">WHAT WE{'\''}RE ABOUT</h1>
     <Mission />
     <Philosophy />
     <FAQ />

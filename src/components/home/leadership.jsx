@@ -11,29 +11,41 @@ const Leadership = () => (
     <br />
     <div className="row">
       <div className="col-lg-4 text-center">
-        <img styleName="portrait" src={portrait}/>
+        <img alt="" styleName="portrait" src={portrait} />
         <div styleName="box">
           <h2>Christian Matthews</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quam mauris, ornare vitae sodales non, condimentum at eros. Aliquam vitae est dolor. Fusce mollis sed diam a sollicitudin. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quam
+            mauris, ornare vitae sodales non, condimentum at eros. Aliquam
+            vitae est dolor. Fusce mollis sed diam a sollicitudin. Vestibulum
+            ante ipsum primis in faucibus orci luctus et ultrices posuere
+            cubilia Curae.
           </p>
         </div>
       </div>
       <div className="col-lg-4 text-center">
-        <img styleName="portrait" src={portrait2}/>
+        <img alt="" styleName="portrait" src={portrait2} />
         <div styleName="box">
           <h2>Alex Johnson</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quam mauris, ornare vitae sodales non, condimentum at eros. Aliquam vitae est dolor. Fusce mollis sed diam a sollicitudin. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quam
+            mauris, ornare vitae sodales non, condimentum at eros. Aliquam
+            vitae est dolor. Fusce mollis sed diam a sollicitudin. Vestibulum
+            ante ipsum primis in faucibus orci luctus et ultrices posuere
+            cubilia Curae.
           </p>
         </div>
       </div>
       <div className="col-lg-4 text-center">
-        <img styleName="portrait" src={portrait3}/>
+        <img alt="" styleName="portrait" src={portrait3} />
         <div styleName="box">
           <h2>Jessica Sampson</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quam mauris, ornare vitae sodales non, condimentum at eros. Aliquam vitae est dolor. Fusce mollis sed diam a sollicitudin. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quam
+            mauris, ornare vitae sodales non, condimentum at eros. Aliquam
+            vitae est dolor. Fusce mollis sed diam a sollicitudin. Vestibulum
+            ante ipsum primis in faucibus orci luctus et ultrices posuere
+            cubilia Curae.
           </p>
         </div>
       </div>
@@ -41,4 +53,4 @@ const Leadership = () => (
   </div>
 );
 
-export default CSSModules(Leadership, styles)
+export default CSSModules(Leadership, styles);

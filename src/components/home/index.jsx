@@ -35,12 +35,16 @@ let Tagline = () => (
   <div styleName="tagline" className="text-center">
     <div className="container">
       <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-      <p>Phasellus congue eu sem sit amet tempor. Morbi sapien justo, ornare quis sapien vitae. Phasellus congue eu sem sit amet tempor. Morbi sapien justo, ornare quis sapien vitae.</p>
+      <p>
+        Phasellus congue eu sem sit amet tempor. Morbi sapien justo, ornare
+        quis sapien vitae. Phasellus congue eu sem sit amet tempor. Morbi
+        sapien justo, ornare quis sapien vitae.
+      </p>
     </div>
   </div>
 );
 
-Tagline = CSSModules(Tagline, styles)
+Tagline = CSSModules(Tagline, styles);
 
 let Subscribe = () => (
   <div styleName="subscribe" className="container-fluid">
@@ -49,17 +53,19 @@ let Subscribe = () => (
       <input
         styleName="input"
         className="form-control"
-        placeholder="example@gmail.com" />
+        placeholder="example@gmail.com"
+      />
       <button
         styleName="button"
-        className="btn btn-outline-secondary">
+        className="btn btn-outline-secondary"
+      >
         Submit
       </button>
     </div>
   </div>
-)
+);
 
-Subscribe = CSSModules(Subscribe, styles)
+Subscribe = CSSModules(Subscribe, styles);
 
 const Home = () => (
   <div>
