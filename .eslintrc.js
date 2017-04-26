@@ -6,4 +6,8 @@ module.exports = {
     node: true,
   },
   extends: 'airbnb',
+  rules: {
+    'react/prop-types': 0,
+    'max-len': 0,
+  },
 };
