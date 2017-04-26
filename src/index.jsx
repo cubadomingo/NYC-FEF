@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import configureStore from './store/index';
+import { AppContainer } from 'react-hot-loader';
 import App from './containers/app/index';
 
-const store = configureStore();
+const render = (Component) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    document.getElementById('app'),
+  );
+};
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('app'),
-);
+render(App);
 
 if (module.hot) {
-  module.hot.accept();
+  module.hot.accept('./containers/app/index', () => { render(App); });
 }

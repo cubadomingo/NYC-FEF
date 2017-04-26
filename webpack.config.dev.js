@@ -11,7 +11,10 @@ const PATHS = {
 module.exports = {
   devtool: 'eval',
   entry: {
-    app: ['./src/index.jsx'],
+    app: [
+      'react-hot-loader/patch',
+      './src/index.jsx',
+    ],
   },
   output: {
     path: PATHS.build,
@@ -56,9 +59,6 @@ module.exports = {
         exclude: /node_modules/,
         enforce: 'pre',
         use: [
-          {
-            loader: 'react-hot-loader',
-          },
           {
             loader: 'babel-loader',
           },
