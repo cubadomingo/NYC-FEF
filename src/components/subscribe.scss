@@ -1,0 +1,27 @@
+.subscribe {
+  position: absolute;
+  bottom: 160px;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.input {
+  display: inline-block;
+  width: 400px;
+}
+
+
+
+.button {
+  color: white;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: black;
+  color: white;
+}

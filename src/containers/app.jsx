@@ -2,12 +2,13 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import configureStore from '../../store/index';
-import Home from '../../components/home/index';
-import About from '../../components/about/index';
-import Activities from '../../components/activities/index';
-import Navbar from '../../components/navbar/index';
-import Footer from '../../components/footer/index';
+import configureStore from '../store/index';
+import Home from '../components/home';
+import About from '../components/about';
+import Activities from '../components/activities';
+import Navbar from '../components/navbar';
+import Subscribe from '../components/subscribe';
+import Footer from '../components/footer';
 
 const store = configureStore();
 
@@ -18,7 +19,7 @@ export default class App extends React.Component {
     html.minHeight = '100%';
     html.position = 'relative';
     html.paddingTop = '80px';
-    html.paddingBottom = '160px';
+    html.paddingBottom = '302px';
   }
 
   render() {
@@ -30,6 +31,7 @@ export default class App extends React.Component {
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/activities" component={Activities} />
+            <Subscribe />
             <Footer />
           </div>
         </BrowserRouter>

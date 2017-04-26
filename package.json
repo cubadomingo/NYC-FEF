@@ -1,10 +1,10 @@
 {
   "name": "NYC-FEF",
   "version": "1.0.0",
-  "description": "Boilerplate code for a React, Redux, and Webpack project.",
+  "description": "Website for the NYC Financial Empowerement Foundation",
   "main": "index.js",
   "scripts": {
-    "test": " NODE_ENV=test mocha --require ./test/setup.js ./test/*.spec.js",
+    "test": " NODE_ENV=test mocha --watch --require ./test/setup.js ./test/*.spec.js",
     "test:lint": "eslint . --cache; exit 0",
     "start": "nodemon --watch webpack.config.dev.js --exec \"webpack-dev-server --config webpack.config.dev.js --progress --inline --colors\"",
     "build": "rm -rf build && webpack --config webpack.config.prod.js --env production --hide-modules --progress"

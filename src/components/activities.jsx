@@ -1,7 +1,11 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
-import style from './index.scss';
-import Category from '../../containers/category/index';
+import Initiatives from '../containers/initiatives';
+import Scholarships from '../containers/scholarships';
+import Events from '../containers/events';
+import Fundraisers from '../containers/fundraisers';
+import style from './activities.scss';
+
 
 const Activities = () => (
   <div>
@@ -20,10 +24,10 @@ const Activities = () => (
         ligula, quis pharetra leo vehicula et.
       </p>
     </div>
-    <Category title="Initiatives" />
-    <Category title="Scholarships" />
-    <Category title="Events" />
-    <Category title="Fundraisers" />
+    <Initiatives />
+    <Scholarships />
+    <Events />
+    <Fundraisers />
   </div>
 );
 
