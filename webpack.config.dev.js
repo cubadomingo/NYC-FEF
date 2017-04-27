@@ -72,19 +72,43 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: [
-          'style-loader?sourceMap',
-          'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-          'resolve-url-loader',
-          'sass-loader?sourceMap',
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              import: true,
+              importLoaders: 1,
+              localIdentName: '[path]___[name]__[local]___[hash:base64:5]',
+            },
+          },
+          {
+            loader: 'resolve-url-loader',
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
       },
       {
         test: /\.(jpg|png|svg)$/,
-        loader: 'url-loader',
-        options: {
-          limit: 25000,
-        },
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 25000,
+            },
+          },
+        ],
       },
     ],
   },
