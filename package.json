@@ -4,7 +4,7 @@
   "description": "Website for the NYC Financial Empowerement Foundation",
   "main": "index.js",
   "scripts": {
-    "test": " NODE_ENV=test mocha --watch --require ./test/setup.js ./test/*.spec.js",
+    "test": " NODE_ENV=test mocha --compilers js:babel-core/register --require ./test/setup.js ./test/*/*.spec.js",
     "test:lint": "eslint . --cache; exit 0",
     "start": "nodemon --watch webpack.config.dev.js --exec \"webpack-dev-server --config webpack.config.dev.js --progress --inline --colors\"",
     "build": "rm -rf build && webpack --config webpack.config.prod.js --env production --hide-modules --progress"
@@ -13,18 +13,22 @@
   "license": "MIT",
   "dependencies": {
     "react": "^15.5.4",
-    "react-css-modules": "^4.2.1",
     "react-dom": "^15.4.4",
-    "react-hot-loader": "next",
     "react-redux": "^5.0.4",
+    "react-router": "^4.1.1",
     "react-router-dom": "4.1.1",
     "redux": "^3.6.0",
-    "redux-logger": "^3.0.1",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
     "webpack": "^2.4.1"
   },
   "devDependencies": {
+    "redux-logger": "^3.0.1",
+    "require-hacker": "^3.0.0",
+    "css-modules-require-hook": "^4.0.6",
+    "ignore-styles": "^5.0.1",
+    "react-css-modules": "^4.2.1",
+    "react-hot-loader": "next",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.2",
     "babel-loader": "^6.4.1",
