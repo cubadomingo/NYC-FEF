@@ -1,20 +1,16 @@
-import hook from 'css-modules-require-hook'
-import requireHacker from 'require-hacker'
-import sass from 'node-sass'
+import requireHacker from 'require-hacker';
+import mockCSSModules from 'mock-css-modules';
+import sass from 'node-sass';
 
-hook({
-  extensions: [ '.scss' ],
-  preprocessCss: data => sass.renderSync({ data }).css
-})
+mockCSSModules.register(['.scss']);
 
-requireHacker.hook('png', () => 'module.exports = ""')
-requireHacker.hook('svg', () => 'module.exports = ""')
-requireHacker.hook('jpg', () => 'module.exports = ""')
-
+requireHacker.hook('png', () => 'module.exports = ""');
+requireHacker.hook('svg', () => 'module.exports = ""');
+requireHacker.hook('jpg', () => 'module.exports = ""');
 
 const jsdom = require('jsdom').jsdom;
 
-var exposedProperties = ['window', 'navigator', 'document'];
+const exposedProperties = ['window', 'navigator', 'document'];
 
 global.document = jsdom('');
 global.window = document.defaultView;
