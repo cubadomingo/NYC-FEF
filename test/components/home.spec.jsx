@@ -10,6 +10,7 @@ import Leadership from '../../src/components/leadership';
 describe('Home', () => {
   it('should render 4 Components', () => {
     const wrapper = shallow(<Home />);
+
     expect(wrapper.containsAllMatchingElements([
       <BackgroundImage />,
       <Tagline />,

@@ -11,5 +11,7 @@ module.exports = {
     'import/no-extraneous-dependencies': [2, { devDependencies: true }],
     'react/prop-types': 0,
     'max-len': 0,
+    'import/no-named-as-default': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
   },
 };

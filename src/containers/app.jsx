@@ -5,7 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import configureStore from '../store/index';
 import Home from '../components/home';
 import About from '../components/about';
-import Activities from '../components/activities';
+import Activities from '../containers/activities';
 import Navbar from '../components/navbar';
 import Subscribe from '../components/subscribe';
 import Footer from '../components/footer';
