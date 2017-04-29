@@ -9,6 +9,7 @@ module.exports = {
   extends: 'airbnb',
   rules: {
     'import/no-extraneous-dependencies': [2, { devDependencies: true }],
+    'no-unused-expressions': 0,
     'react/prop-types': 0,
     'max-len': 0,
     'import/no-named-as-default': 0,

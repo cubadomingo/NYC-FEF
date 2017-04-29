@@ -8,6 +8,8 @@ import {
   FETCH_FUNDRAISERS,
   FETCH_SCHOLARSHIPS,
   SET_INITIAL_STYLES,
+  SIGN_IN,
+  SIGN_OUT,
 } from './types';
 
 export function toggleEvents(show) {
@@ -76,5 +78,19 @@ export function setInitialStyles() {
   return {
     type: SET_INITIAL_STYLES,
     payload: true,
+  };
+}
+
+export function signIn() {
+  return {
+    type: SIGN_IN,
+    payload: true,
+  };
+}
+
+export function signOut() {
+  return {
+    type: SIGN_OUT,
+    payload: false,
   };
 }

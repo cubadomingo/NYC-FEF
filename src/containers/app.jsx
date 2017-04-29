@@ -6,6 +6,7 @@ import configureStore from '../store/index';
 import Home from '../components/home';
 import About from '../components/about';
 import Activities from '../containers/activities';
+import Login from '../components/login';
 import Navbar from '../components/navbar';
 import Subscribe from '../components/subscribe';
 import Footer from '../components/footer';
@@ -26,6 +27,7 @@ export class App extends React.Component {
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/activities" component={Activities} />
+          <Route path="/login" component={Login} />
           <Subscribe />
           <Footer />
         </div>
