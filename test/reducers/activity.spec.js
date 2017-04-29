@@ -78,7 +78,7 @@ describe('Activity reducer', () => {
     );
   });
 
-  it('fundraisers', () => {
+  it('fetches fundraisers', () => {
     expect(reducer({}, fetchFundraisers())).to.deep.equal(
       { fundraisers: { data: [] } },
     );

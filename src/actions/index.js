@@ -7,6 +7,7 @@ import {
   FETCH_INITIATIVES,
   FETCH_FUNDRAISERS,
   FETCH_SCHOLARSHIPS,
+  SET_INITIAL_STYLES,
 } from './types';
 
 export function toggleEvents(show) {
@@ -62,5 +63,18 @@ export function fetchScholarships() {
   return {
     type: FETCH_SCHOLARSHIPS,
     payload: [],
+  };
+}
+
+export function setInitialStyles() {
+  const html = document.documentElement.style;
+  html.minHeight = '100%';
+  html.position = 'relative';
+  html.paddingTop = '80px';
+  html.paddingBottom = '302px';
+
+  return {
+    type: SET_INITIAL_STYLES,
+    payload: true,
   };
 }

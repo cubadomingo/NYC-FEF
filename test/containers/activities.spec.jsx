@@ -44,7 +44,7 @@ describe('Activities', () => {
     expect(wrapper.find(Activity)).to.have.length(4);
   });
 
-  it('should fetch resources on ComponentDidMount', () => {
+  it('should fetch resources on componentDidMount', () => {
     const fetchEvents = sinon.spy();
     const fetchInitiatives = sinon.spy();
     const fetchScholarships = sinon.spy();
