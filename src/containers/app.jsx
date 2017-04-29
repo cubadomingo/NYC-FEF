@@ -36,10 +36,8 @@ export class App extends React.Component {
 
 const ConnectedApp = connect(null, { setInitialStyles })(App);
 
-const ProvidedApp = () => (
+export default () => (
   <Provider store={store}>
     <ConnectedApp />
   </Provider>
 );
-
-export default ProvidedApp;
