@@ -7,6 +7,10 @@ import {
   toggleInitiatives,
   toggleScholarships,
   toggleFundraisers,
+  fetchEvents,
+  fetchInitiatives,
+  fetchScholarships,
+  fetchFundraisers,
 } from '../../src/actions/index';
 
 describe('Activity reducer', () => {
@@ -53,6 +57,30 @@ describe('Activity reducer', () => {
   it('toggles fundraisers body', () => {
     expect(reducer({}, toggleFundraisers(true))).to.deep.equal(
       { fundraisers: { show: true } },
+    );
+  });
+
+  it('fetches events', () => {
+    expect(reducer({}, fetchEvents())).to.deep.equal(
+      { events: { data: [] } },
+    );
+  });
+
+  it('fetches initiatives', () => {
+    expect(reducer({}, fetchInitiatives())).to.deep.equal(
+      { initiatives: { data: [] } },
+    );
+  });
+
+  it('fetches scholarships', () => {
+    expect(reducer({}, fetchScholarships())).to.deep.equal(
+      { scholarships: { data: [] } },
+    );
+  });
+
+  it('fundraisers', () => {
+    expect(reducer({}, fetchFundraisers())).to.deep.equal(
+      { fundraisers: { data: [] } },
     );
   });
 

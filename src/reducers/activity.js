@@ -3,6 +3,10 @@ import {
   SHOW_INITIATIVES,
   SHOW_FUNDRAISERS,
   SHOW_SCHOLARSHIPS,
+  FETCH_EVENTS,
+  FETCH_INITIATIVES,
+  FETCH_FUNDRAISERS,
+  FETCH_SCHOLARSHIPS,
 } from '../actions/types';
 
 const initialState = {
@@ -56,6 +60,38 @@ export default function (state = initialState, action) {
         scholarships: {
           ...state.scholarships,
           show: action.payload,
+        },
+      };
+    case FETCH_EVENTS:
+      return {
+        ...state,
+        events: {
+          ...state.scholarships,
+          data: action.payload,
+        },
+      };
+    case FETCH_INITIATIVES:
+      return {
+        ...state,
+        initiatives: {
+          ...state.scholarships,
+          data: action.payload,
+        },
+      };
+    case FETCH_FUNDRAISERS:
+      return {
+        ...state,
+        fundraisers: {
+          ...state.scholarships,
+          data: action.payload,
+        },
+      };
+    case FETCH_SCHOLARSHIPS:
+      return {
+        ...state,
+        scholarships: {
+          ...state.scholarships,
+          data: action.payload,
         },
       };
     default:

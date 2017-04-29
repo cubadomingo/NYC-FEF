@@ -14,7 +14,6 @@ const store = configureStore();
 
 export default class App extends React.Component {
   componentDidMount() {
-    /* global document */
     const html = document.documentElement.style;
     html.minHeight = '100%';
     html.position = 'relative';

@@ -1,11 +1,12 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import sinon from 'sinon';
 import Activity from '../../src/components/activity';
-import { Activities } from '../../src/containers/activities';
+import { Activities, StyledActivities } from '../../src/containers/activities';
 
 describe('Activities', () => {
-  const props = {
+  let props = {
     initiatives: {
       data: [],
       show: false,
@@ -41,5 +42,27 @@ describe('Activities', () => {
   it('should render 4 Category components', () => {
     const wrapper = shallow(<Activities {...props} />);
     expect(wrapper.find(Activity)).to.have.length(4);
+  });
+
+  it('should fetch resources on ComponentDidMount', () => {
+    const fetchEvents = sinon.spy();
+    const fetchInitiatives = sinon.spy();
+    const fetchScholarships = sinon.spy();
+    const fetchFundraisers = sinon.spy();
+
+    props = {
+      ...props,
+      fetchEvents,
+      fetchFundraisers,
+      fetchInitiatives,
+      fetchScholarships,
+    };
+
+    mount(<StyledActivities {...props} />);
+
+    expect(fetchEvents.calledOnce).to.equal(true);
+    expect(fetchInitiatives.calledOnce).to.equal(true);
+    expect(fetchScholarships.calledOnce).to.equal(true);
+    expect(fetchFundraisers.calledOnce).to.equal(true);
   });
 });

@@ -8,6 +8,20 @@ import { mapStateToProps } from '../reducers/activity';
 
 /* eslint-disable */
 export class Activities extends Component {
+  componentDidMount() {
+    const {
+      fetchEvents,
+      fetchInitiatives,
+      fetchFundraisers,
+      fetchScholarships,
+    } = this.props;
+
+    fetchEvents();
+    fetchInitiatives();
+    fetchFundraisers();
+    fetchScholarships();
+  }
+
   render() {
     const {
       scholarships,
@@ -66,6 +80,6 @@ export class Activities extends Component {
   }
 }
 
-const StyledActivities = CSSModules(Activities, style);
+export const StyledActivities = CSSModules(Activities, style);
 
 export default connect(mapStateToProps, actions)(StyledActivities);
