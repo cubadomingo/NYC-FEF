@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Activity = props => (
   <div
@@ -17,6 +18,7 @@ const Activity = props => (
             <p>{x.body}</p>
           </div>,
         ) }
+        <Link to={props.name.toLowerCase()}>View all {props.name}</Link>
       </div>
     ) : null }
   </div>

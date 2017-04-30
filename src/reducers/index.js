@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { formReducer } from 'redux-form';
+import { reducer as formReducer } from 'redux-form';
 import activityReducer from './activity';
 import appReducer from './app';
 import authenticateReducer from './authentication';

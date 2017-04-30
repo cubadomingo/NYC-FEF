@@ -18,6 +18,7 @@ module.exports = {
   },
   output: {
     path: PATHS.build,
+    publicPath: '/',
     filename: '[name].js',
   },
   resolve: {
@@ -29,7 +30,6 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     hot: true,
-    hotOnly: true,
     stats: 'errors-only',
   },
   plugins: [

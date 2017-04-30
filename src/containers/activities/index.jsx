@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
 import { connect } from 'react-redux';
-import Activity from '../components/activity';
+import DataList from '../../components/activities/dataList';
 import style from './activities.scss';
-import * as actions from '../actions/index';
-import { mapStateToProps } from '../reducers/activity';
+import * as actions from '../../actions/index';
+import { mapStateToProps } from '../../reducers/activity';
 
 /* eslint-disable */
 export class Activities extends Component {
@@ -51,25 +51,25 @@ export class Activities extends Component {
             ligula, quis pharetra leo vehicula et.
           </p>
         </div>
-        <Activity
+        <DataList
           name="Initiatives"
           data={initiatives.data}
           show={initiatives.show}
           toggleSection={toggleInitiatives}
         />
-        <Activity
+        <DataList
           name="Events"
           data={events.data}
           show={events.show}
           toggleSection={toggleEvents}
         />
-        <Activity
+        <DataList
           name="Scholarships"
           data={scholarships.data}
           show={scholarships.show}
           toggleSection={toggleScholarships}
         />
-        <Activity
+        <DataList
           name="Fundraisers"
           data={fundraisers.data}
           show={fundraisers.show}
