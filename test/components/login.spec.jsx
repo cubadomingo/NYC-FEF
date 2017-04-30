@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import { Login } from '../../src/components/login';
+import { Login } from '../../src/components/authentication/login';
 
 describe('Login Component', () => {
   it('should render a sign in button', () => {

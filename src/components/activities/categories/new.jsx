@@ -4,7 +4,7 @@ import InitiativesNewForm from './forms/initiativesNewForm';
 import ScholarshipsNewForm from './forms/scholarshipsNewForm';
 import FundraisersNewForm from './forms/fundraisersNewForm';
 
-const ActivityNew = (props) => {
+const New = (props) => {
   const handleSubmit = (values) => {
     switch (props.name) {
       case 'events':
@@ -22,25 +22,26 @@ const ActivityNew = (props) => {
 
   const newForm = (activity) => {
     switch (activity) {
-      case 'events':
+      case 'Events':
         return <EventsNewForm onSubmit={handleSubmit} />;
-      case 'initiatives':
+      case 'Initiatives':
         return <InitiativesNewForm onSubmit={handleSubmit} />;
-      case 'scholarships':
+      case 'Scholarships':
         return <ScholarshipsNewForm onSubmit={handleSubmit} />;
-      case 'fundraisers':
+      case 'Fundraisers':
         return <FundraisersNewForm onSubmit={handleSubmit} />;
       default:
         return null;
     }
   };
 
+  console.log(props);
   return (
     <div className="container text-center">
-      <h1>New {props.name}</h1>
+      <h1>NEW ROUTE</h1>
       { newForm(props.name) }
     </div>
   );
 };
 
-export default ActivityNew;
+export default New;

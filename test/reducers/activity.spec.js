@@ -13,7 +13,7 @@ import {
   fetchFundraisers,
 } from '../../src/actions/index';
 
-describe('Activity reducer', () => {
+describe('Activity Reducer', () => {
   it('initializes the state', () => {
     const initialState = {
       initiatives: {
