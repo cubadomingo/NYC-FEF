@@ -1,6 +1,5 @@
 import requireHacker from 'require-hacker';
 import mockCSSModules from 'mock-css-modules';
-import sass from 'node-sass';
 
 mockCSSModules.register(['.scss']);
 
