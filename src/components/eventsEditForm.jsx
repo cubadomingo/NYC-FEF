@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-const EventsNewForm = props => (
+const EventsEditForm = props => (
   <form onSubmit={props.handleSubmit}>
     <div>
       <label htmlFor="title">Title</label>
@@ -15,4 +15,4 @@ const EventsNewForm = props => (
   </form>
 );
 
-export default reduxForm({ form: 'new-event' })(EventsNewForm);
+export default reduxForm({ form: 'edit-event' })(EventsEditForm);
