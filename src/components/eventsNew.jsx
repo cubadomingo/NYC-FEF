@@ -1,14 +1,14 @@
 import React from 'react';
 import EventsNewForm from './eventsNewForm';
 
-const EventsNew = () => {
+const EventsNew = (props) => {
   const handleSubmit = values => (
-    console.log(values)
+    props.eventsNewFormSubmit(values)
   );
 
   return (
     <div className="container text-center">
-      <h1>NEW ROUTE</h1>
+      <h1>Create a New Event</h1>
       <EventsNewForm onSubmit={handleSubmit} />
     </div>
   );
