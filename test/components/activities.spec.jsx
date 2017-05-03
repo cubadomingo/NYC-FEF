@@ -33,6 +33,7 @@ describe('Activities Component', () => {
     );
 
     expect(wrapper.containsMatchingElement(
-      <Route path="/activities/events" />)).to.equal(true);
+      <Route path="/activities/events" />,
+    )).to.equal(true);
   });
 });
