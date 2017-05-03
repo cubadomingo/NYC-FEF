@@ -1,6 +1,6 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
-import styles from './backgroundImage.scss';
+import styles from './homeImage.scss';
 
 const BackgroundImage = () => (
   <div styleName="background-image">

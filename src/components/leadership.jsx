@@ -1,9 +1,9 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './leadership.scss';
-import portrait from '../../assets/images/portrait.jpg';
-import portrait2 from '../../assets/images/portrait2.jpg';
-import portrait3 from '../../assets/images/portrait3.jpg';
+import portrait from '../assets/images/portrait.jpg';
+import portrait2 from '../assets/images/portrait2.jpg';
+import portrait3 from '../assets/images/portrait3.jpg';
 
 const Leadership = () => (
   <div styleName="leadership" className="container">

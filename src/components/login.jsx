@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { mapStateToProps } from '../../reducers/authentication';
+import { mapStateToProps } from '../reducers/authentication';
 import {
   signIn,
   signOut,
-} from '../../actions/index';
+} from '../actions/index';
 
 export const Login = props => (
   !props.authenticated ? (

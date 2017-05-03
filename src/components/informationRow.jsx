@@ -2,9 +2,9 @@ import React from 'react';
 import CSSModules from 'react-css-modules';
 import { Link } from 'react-router-dom';
 import styles from './informationRow.scss';
-import aboutImage from '../../assets/images/about.svg';
-import activitiesImage from '../../assets/images/activities.svg';
-import getInvolvedImage from '../../assets/images/getInvolved.svg';
+import aboutImage from '../assets/images/about.svg';
+import activitiesImage from '../assets/images/activities.svg';
+import getInvolvedImage from '../assets/images/getInvolved.svg';
 
 let About = () => (
   <div className="col-lg-4 text-center">

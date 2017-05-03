@@ -2,7 +2,7 @@ import React from 'react';
 import EventsNewForm from './eventsNewForm';
 
 
-const EventEdit = () => {
+const EventsEdit = () => {
   const handleSubmit = values => (
     console.log(values)
   );
@@ -15,4 +15,4 @@ const EventEdit = () => {
   );
 };
 
-export default EventEdit;
+export default EventsEdit;

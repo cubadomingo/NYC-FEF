@@ -1,13 +1,13 @@
 import React from 'react';
 
-import BackgroundImage from './backgroundImage';
+import HomeImage from './homeImage';
 import Tagline from './tagline';
 import InformationRow from './informationRow';
 import Leadership from './leadership';
 
 const Home = () => (
   <div>
-    <BackgroundImage />
+    <HomeImage />
     <Tagline />
     <InformationRow />
     <Leadership />
