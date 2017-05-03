@@ -9,7 +9,7 @@ describe(('EventsEdit Component'), () => {
   it('contains EventsEditForm Component', () => {
     const wrapper = shallow(<EventsEdit />);
 
-    expect(wrapper.exists(EventsEditForm)).to.equal(true);
+    expect(wrapper.find(EventsEditForm).exists()).to.equal(true);
   });
 
   it('fires eventEditFormSubmit on submit', () => {
