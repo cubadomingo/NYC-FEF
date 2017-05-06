@@ -41,6 +41,10 @@ module.exports = {
         integrity: 'sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ',
         crossorigin: 'anonymous',
       }],
+      scripts: [{
+        type: 'application/javascript',
+        src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDfa6ruWUjbE1BXESd4nitm9rkkTzUuODg&libraries=places',
+      }],
       meta: [{
         name: 'viewport',
         content: 'width=device-width, initial-scale=1, shrink-to-fit=no',

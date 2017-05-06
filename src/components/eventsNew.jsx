@@ -2,9 +2,9 @@ import React from 'react';
 import EventsNewForm from './eventsNewForm';
 
 const EventsNew = (props) => {
-  const handleSubmit = values => (
-    props.eventsNewFormSubmit(values)
-  );
+  const handleSubmit = (values) => {
+    props.eventsNewFormSubmit(values);
+  };
 
   return (
     <div className="container text-center">
