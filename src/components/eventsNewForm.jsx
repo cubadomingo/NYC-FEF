@@ -15,8 +15,8 @@ const validate = (values) => {
   if (!values.body) {
     errors.body = 'A body is required';
   }
-  if (!values.date) {
-    errors.date = 'A date is required';
+  if (!values.datetime) {
+    errors.datetime = 'A date is required';
   }
   if (!values.location) {
     errors.location = 'A location is required';

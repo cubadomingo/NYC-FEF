@@ -3,11 +3,12 @@ import EventsEditForm from './eventsEditForm';
 
 const EventsEdit = props => (
   <div className="container text-center">
-    <h1>EDIT ROUTE</h1>
+    <h1>Edit Event</h1>
     <EventsEditForm
       onSubmit={(values) => {
         props.eventsEditFormSubmit(values);
       }}
+      initialValues={props.initialValues}
     />
   </div>
 );
