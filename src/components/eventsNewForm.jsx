@@ -25,7 +25,7 @@ const validate = (values) => {
 };
 
 export const EventsNewForm = props => (
-  <form onSubmit={props.handleSubmit}>
+  <form onSubmit={props.submitNewEvent}>
     <Field
       name="title"
       label="Title"
