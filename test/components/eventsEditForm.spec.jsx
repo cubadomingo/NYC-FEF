@@ -3,9 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { Field } from 'redux-form';
-import ConnectedForm, {
-  EventsEditForm,
-} from '../../src/components/eventsEditForm';
+import { EventsEditForm } from '../../src/components/eventsEditForm';
 import {
   renderTitleField,
   renderBodyField,
