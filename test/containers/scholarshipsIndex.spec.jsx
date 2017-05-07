@@ -14,7 +14,7 @@ describe('ScholarshipsIndex Container', () => {
     expect(wrapper.find(ScholarshipsIndexList).exists()).to.equal(true);
   });
 
-  it('contains Link to create a new event if logged in', () => {
+  it('contains Link to create a new scholarship if logged in', () => {
     const wrapper = shallow(
       <ScholarshipsIndex
         authenticated

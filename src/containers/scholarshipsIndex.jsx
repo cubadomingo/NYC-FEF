@@ -5,7 +5,7 @@ import ScholarshipsIndexList from '../components/scholarshipsIndexList';
 
 export const ScholarshipsIndex = props => (
   <div>
-    <h1>Events</h1>
+    <h1>Scholarships</h1>
     { props.authenticated ? (
       <Link to={`${props.match.url}/new`}>Create a New Scholarship</Link>
     ) : (
