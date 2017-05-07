@@ -1,54 +1,55 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import PlacesAutocomplete from 'react-places-autocomplete';
+import {
+  renderTitleField,
+  renderBodyField,
+  renderDateField,
+  renderLocationField,
+} from './eventsFormFields';
 
-const wrappedComponent = props => (
-  <PlacesAutocomplete
-    inputProps={{
-      value: props.input.value,
-      onChange: props.input.onChange,
-      placeholder: 'Enter an address',
-    }}
-    classNames={{
-      input: 'form-control',
-    }}
-  />
-);
+const validate = (values) => {
+  const errors = {};
+  if (!values.title) {
+    errors.title = 'A title is required';
+  }
+  if (!values.body) {
+    errors.body = 'A body is required';
+  }
+  if (!values.date) {
+    errors.date = 'A date is required';
+  }
+  if (!values.location) {
+    errors.location = 'A location is required';
+  }
+  return errors;
+};
 
-const EventsNewForm = props => (
+export const EventsNewForm = props => (
   <form onSubmit={props.handleSubmit}>
+    <Field
+      name="title"
+      label="Title"
+      type="text"
+      component={renderTitleField}
+    />
+    <Field
+      name="body"
+      label="Body"
+      type="textarea"
+      component={renderBodyField}
+    />
     <div className="form-group row">
-      <label className="col-2" htmlFor="title">Title</label>
-      <div className="col-10">
-        <Field className="form-control" name="title" component="input" type="text" />
-      </div>
-    </div>
-    <div className="form-group row">
-      <label className="col-sm-2" htmlFor="body">Body</label>
-      <div className="col-sm-10">
-        <Field className="form-control" name="body" component="textarea" type="text" />
-      </div>
-    </div>
-    <div className="form-group row">
-      <div className="col-6">
-        <div className="row">
-          <label className="col-4" htmlFor="date">Date</label>
-          <div className="col-8">
-            <Field className="form-control" name="time-and-date" component="input" type="datetime-local" />
-          </div>
-        </div>
-      </div>
-      <div className="col-6">
-        <div className="row">
-          <label className="col-4" htmlFor="location">Location</label>
-          <div className="col-8">
-            <Field
-              name="location"
-              component={wrappedComponent}
-            />
-          </div>
-        </div>
-      </div>
+      <Field
+        type="datetime-local"
+        name="datetime"
+        label="Date and Time"
+        component={renderDateField}
+      />
+      <Field
+        name="location"
+        label="Location"
+        component={renderLocationField}
+      />
     </div>
     <div className="form-group">
       <button type="submit" className="btn btn-default">Submit</button>
@@ -56,4 +57,7 @@ const EventsNewForm = props => (
   </form>
 );
 
-export default reduxForm({ form: 'new-event' })(EventsNewForm);
+export default reduxForm({
+  form: 'new-event',
+  validate,
+})(EventsNewForm);

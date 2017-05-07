@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import { Link } from 'react-router-dom';
-import EventsIndex from '../../src/containers/eventsIndex';
+import { EventsIndex } from '../../src/containers/eventsIndex';
 import EventsIndexList from '../../src/components/eventsIndexList';
 
 describe('EventsIndex Container', () => {
