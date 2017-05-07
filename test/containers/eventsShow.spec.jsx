@@ -5,12 +5,12 @@ import sinon from 'sinon';
 import EventsShow from '../../src/containers/eventsShow';
 
 describe('EventsShow Component', () => {
-  const event = [{
+  const event = {
     title: 'Sample Event',
     date: '12/1/18',
     time: '7:00 pm',
     description: 'Lorem Ipsum...',
-  }];
+  };
 
   it('fetches event on component mount', () => {
     const fetchEvent = sinon.spy();
