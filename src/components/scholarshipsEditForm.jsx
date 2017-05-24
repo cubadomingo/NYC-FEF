@@ -24,7 +24,7 @@ const validate = (values) => {
 };
 
 export const ScholarshipsEditForm = props => (
-  <form onSubmit={props.scholarshipsEditFormSubmit}>
+  <form onSubmit={props.submitEditedScholarship}>
     <Field
       name="title"
       label="Title"
