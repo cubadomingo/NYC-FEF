@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackTemplate = require('html-webpack-template');
 
 const PATHS = {
-  app: path.join(__dirname, 'src'),
+  src: path.join(__dirname, 'src'),
   build: path.join(__dirname, 'build'),
 };
 
@@ -69,9 +69,6 @@ module.exports = {
           },
           {
             loader: 'eslint-loader',
-            options: {
-              emitError: true,
-            },
           },
         ],
       },

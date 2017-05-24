@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ScholarshipsIndexList from 'components/scholarshipsIndexList';
+import ScholarshipsIndex from 'components/scholarshipsIndex';
 
-export const ScholarshipsIndex = props => (
+export const Scholarships = props => (
   <div>
     <h1>Scholarships</h1>
     { props.authenticated ? (
@@ -11,7 +11,7 @@ export const ScholarshipsIndex = props => (
     ) : (
       null
     )}
-    <ScholarshipsIndexList />
+    <ScholarshipsIndex />
   </div>
 );
 
@@ -21,4 +21,4 @@ const mapStateToProps = state => (
   }
 );
 
-export default connect(mapStateToProps)(ScholarshipsIndex);
+export default connect(mapStateToProps)(Scholarships);

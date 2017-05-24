@@ -7,7 +7,7 @@ import { setInitialStyles } from 'actions/index';
 import Home from 'components/home';
 import About from 'components/about';
 import Activities from 'components/activities';
-import Login from 'components/login';
+import SignIn from 'components/signIn';
 import Navbar from 'components/navbar';
 import Subscribe from 'components/subscribe';
 import Footer from 'components/footer';
@@ -27,7 +27,7 @@ export class App extends React.Component {
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/activities" component={Activities} />
-          <Route path="/login" component={Login} />
+          <Route path="/signin" component={SignIn} />
           <Subscribe />
           <Footer />
         </div>

@@ -1,9 +1,14 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { mapStateToProps } from 'reducers/authentication';
+import {
+  signOut,
+} from 'actions/index';
 import styles from 'styles/navbar.scss';
 
-const Navbar = () => (
+const Navbar = props => (
   <nav
     styleName="navbar"
     className="navbar navbar-toggleable-md fixed-top navbar-light"
@@ -47,16 +52,27 @@ const Navbar = () => (
             to="/get-involved"
           >Get Involved</Link>
         </li>
-        <li className="nav-item active">
+        <li className="nav-item">
           <Link className="nav-link" to="/donate">
             <span styleName="navbar-button" className="btn btn-secondary">
               Donate
             </span>
           </Link>
         </li>
+        { props.authenticated ? (
+          <li className="nav-item">
+            <a className="nav-link" id="signout" onClick={() => props.signOut()}>
+              <span styleName="navbar-button" className="btn btn-secondary">
+                Sign Out
+              </span>
+            </a>
+          </li>
+        ) : null }
       </ul>
     </div>
   </nav>
 );
 
-export default CSSModules(Navbar, styles);
+const styledComponent = CSSModules(Navbar, styles);
+
+export default connect(mapStateToProps, { signOut })(styledComponent);

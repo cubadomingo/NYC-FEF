@@ -1,16 +1,62 @@
 import React from 'react';
-import EventsEditForm from 'components/eventsEditForm';
+import { Field, reduxForm } from 'redux-form';
+import { eventsField } from 'utils/formFields';
 
-const EventsEdit = props => (
+const validate = (values) => {
+  const errors = {};
+  if (!values.title) {
+    errors.title = 'A title is required';
+  }
+  if (!values.body) {
+    errors.body = 'A body is required';
+  }
+  if (!values.datetime) {
+    errors.datetime = 'A date is required';
+  }
+  if (!values.location) {
+    errors.location = 'A location is required';
+  }
+  return errors;
+};
+
+export const EventsEdit = props => (
   <div className="container text-center">
     <h1>Edit Event</h1>
-    <EventsEditForm
-      onSubmit={(values) => {
-        props.eventsEditFormSubmit(values);
-      }}
-      initialValues={props.initialValues}
-    />
+    <form onSubmit={props.submitEditedEvent}>
+      <Field
+        name="title"
+        label="Title"
+        type="text"
+        component={eventsField}
+      />
+      <Field
+        name="body"
+        label="Body"
+        type="textarea"
+        component={eventsField}
+      />
+      <div className="form-group row">
+        <Field
+          type="datetime-local"
+          name="datetime"
+          label="Date and Time"
+          component={eventsField}
+        />
+        <Field
+          type="location"
+          name="location"
+          label="Location"
+          component={eventsField}
+        />
+      </div>
+      <div className="form-group">
+        <button type="submit" className="btn btn-default">Submit</button>
+      </div>
+    </form>
   </div>
 );
 
-export default EventsEdit;
+export default reduxForm({
+  form: 'edit-event',
+  validate,
+})(EventsEdit);
