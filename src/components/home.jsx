@@ -1,9 +1,9 @@
 import React from 'react';
 
-import HomeImage from './homeImage';
-import Tagline from './tagline';
-import InformationRow from './informationRow';
-import Leadership from './leadership';
+import HomeImage from 'components/homeImage';
+import Tagline from 'components/tagline';
+import InformationRow from 'components/informationRow';
+import Leadership from 'components/leadership';
 
 const Home = () => (
   <div>

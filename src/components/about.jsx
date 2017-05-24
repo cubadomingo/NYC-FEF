@@ -1,10 +1,10 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 
-import Mission from './mission';
-import Philosophy from './philosophy';
-import FAQ from './faq';
-import styles from './about.scss';
+import Mission from 'components/mission';
+import Philosophy from 'components/philosophy';
+import FAQ from 'components/faq';
+import styles from 'styles/about.scss';
 
 
 const About = () => (

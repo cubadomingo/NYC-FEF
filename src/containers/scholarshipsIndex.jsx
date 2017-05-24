@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ScholarshipsIndexList from '../components/scholarshipsIndexList';
+import ScholarshipsIndexList from 'components/scholarshipsIndexList';
 
 export const ScholarshipsIndex = props => (
   <div>

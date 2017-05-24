@@ -4,7 +4,7 @@
   "description": "Website for the NYC Financial Empowerement Foundation",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha --compilers js:babel-core/register --require test/setup.js ./test/*/*.spec.js* || true",
+    "test": "NODE_PATH=./src NODE_ENV=test mocha --watch --compilers js:babel-core/register --compilers jsx:babel-register --require test/setup.js ./test/*/*.spec.js* || true",
     "test:lint": "eslint . --cache; exit 0",
     "start": "nodemon --watch webpack.config.dev.js --exec \"webpack-dev-server --config webpack.config.dev.js --progress --inline --colors\"",
     "build": "rm -rf build && webpack --config webpack.config.prod.js --env production --hide-modules --progress"

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import ActivitiesNavbar from './activitiesNavbar';
-import ScholarshipsIndex from '../containers/scholarshipsIndex';
-import ScholarshipsNew from './scholarshipsNew';
-import ScholarshipsShow from '../containers/scholarshipsShow';
-import ScholarshipsEdit from './scholarshipsEdit';
+import ActivitiesNavbar from 'components/activitiesNavbar';
+import ScholarshipsIndex from 'containers/scholarshipsIndex';
+import ScholarshipsNew from 'components/scholarshipsNew';
+import ScholarshipsShow from 'containers/scholarshipsShow';
+import ScholarshipsEdit from 'components/scholarshipsEdit';
 
 export default ({ match }) => (
   <div className="text-center">

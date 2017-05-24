@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { mapStateToProps } from '../reducers/authentication';
+import { mapStateToProps } from 'reducers/authentication';
 
 export const Authentication = (props) => {
   const ComposedComponent = props.composedComponent;

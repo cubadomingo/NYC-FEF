@@ -1,5 +1,5 @@
 import React from 'react';
-import ScholarshipsEditForm from './scholarshipsEditForm';
+import ScholarshipsEditForm from 'components/scholarshipsEditForm';
 
 const ScholarshipsEdit = props => (
   <div className="container text-center">

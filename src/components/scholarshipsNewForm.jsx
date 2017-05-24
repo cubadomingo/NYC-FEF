@@ -4,7 +4,7 @@ import {
   renderTitleField,
   renderBodyField,
   renderDateField,
-} from './scholarshipsFormFields';
+} from 'components/scholarshipsFormFields';
 
 const validate = (values) => {
   const errors = {};

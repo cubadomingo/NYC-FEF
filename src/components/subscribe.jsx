@@ -1,7 +1,7 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 
-import styles from './subscribe.scss';
+import styles from 'styles/subscribe.scss';
 
 const Subscribe = () => (
   <div styleName="subscribe" className="container-fluid">

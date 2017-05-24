@@ -1,5 +1,5 @@
 import React from 'react';
-import ScholarshipsNewForm from './scholarshipsNewForm';
+import ScholarshipsNewForm from 'components/scholarshipsNewForm';
 
 export default (props) => {
   const handleSubmit = (values) => {

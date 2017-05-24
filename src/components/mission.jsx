@@ -1,6 +1,6 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
-import styles from './mission.scss';
+import styles from 'styles/mission.scss';
 
 const Mission = () => (
   <div className="container" styleName="mission">

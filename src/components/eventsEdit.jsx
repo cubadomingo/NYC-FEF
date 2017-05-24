@@ -1,5 +1,5 @@
 import React from 'react';
-import EventsEditForm from './eventsEditForm';
+import EventsEditForm from 'components/eventsEditForm';
 
 const EventsEdit = props => (
   <div className="container text-center">

@@ -12,6 +12,8 @@ module.exports = {
     'react/prop-types': 0,
     'no-console': 1,
     'max-len': 0,
+    'import/extensions': 0,
+    'import/no-extraneous-dependencies': 0,
     'import/no-named-as-default': 0,
     'jsx-a11y/no-static-element-interactions': 0,
     'import/no-unresolved': 0,

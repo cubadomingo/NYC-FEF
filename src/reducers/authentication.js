@@ -1,7 +1,7 @@
 import {
   SIGN_IN,
   SIGN_OUT,
-} from '../actions/types';
+} from 'actions/types';
 
 const initialState = {
   authenticated: true,

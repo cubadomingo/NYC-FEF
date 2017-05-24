@@ -10,7 +10,7 @@ import {
   SET_INITIAL_STYLES,
   SIGN_IN,
   SIGN_OUT,
-} from './types';
+} from 'actions/types';
 
 export function toggleEvents(show) {
   return {

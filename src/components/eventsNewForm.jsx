@@ -5,7 +5,7 @@ import {
   renderBodyField,
   renderDateField,
   renderLocationField,
-} from './eventsFormFields';
+} from 'components/eventsFormFields';
 
 const validate = (values) => {
   const errors = {};

@@ -1,7 +1,7 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 
-import styles from './tagline.scss';
+import styles from 'styles/tagline.scss';
 
 const Tagline = () => (
   <div styleName="tagline" className="text-center">

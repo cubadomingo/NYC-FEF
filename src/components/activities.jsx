@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import ActivitiesRoot from './activitiesRoot';
-import Events from './events';
-import Scholarships from './scholarships';
+import ActivitiesRoot from 'components/activitiesRoot';
+import Events from 'components/events';
+import Scholarships from 'components/scholarships';
 
 const Activities = ({ match }) => (
   <div>

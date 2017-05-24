@@ -2,15 +2,15 @@ import React from 'react';
 import { connect, Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import configureStore from '../store/index';
-import { setInitialStyles } from '../actions/index';
-import Home from '../components/home';
-import About from '../components/about';
-import Activities from '../components/activities';
-import Login from '../components/login';
-import Navbar from '../components/navbar';
-import Subscribe from '../components/subscribe';
-import Footer from '../components/footer';
+import configureStore from 'store/index';
+import { setInitialStyles } from 'actions/index';
+import Home from 'components/home';
+import About from 'components/about';
+import Activities from 'components/activities';
+import Login from 'components/login';
+import Navbar from 'components/navbar';
+import Subscribe from 'components/subscribe';
+import Footer from 'components/footer';
 
 const store = configureStore();
 

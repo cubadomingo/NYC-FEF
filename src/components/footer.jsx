@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CSSModules from 'react-css-modules';
-import styles from './footer.scss';
+import styles from 'styles/footer.scss';
 
 const Footer = () => (
   <footer className="container text-center" styleName="footer">

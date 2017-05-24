@@ -1,5 +1,5 @@
 import React from 'react';
-import EventsNewForm from './eventsNewForm';
+import EventsNewForm from 'components/eventsNewForm';
 
 const EventsNew = (props) => {
   const handleSubmit = (values) => {

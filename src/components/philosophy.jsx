@@ -1,6 +1,6 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
-import styles from './philosophy.scss';
+import styles from 'styles/philosophy.scss';
 
 const Philosophy = () => (
   <div className="container" styleName="philosophy">
