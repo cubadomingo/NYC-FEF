@@ -36,18 +36,22 @@ export const EventsEdit = props => (
         component={eventsField}
       />
       <div className="form-group row">
-        <Field
-          type="datetime-local"
-          name="datetime"
-          label="Date and Time"
-          component={eventsField}
-        />
-        <Field
-          type="location"
-          name="location"
-          label="Location"
-          component={eventsField}
-        />
+        <div className="col-6">
+          <Field
+            type="datetime-local"
+            name="datetime"
+            label="Date and Time"
+            component={eventsField}
+          />
+        </div>
+        <div className="col-6">
+          <Field
+            type="location"
+            name="location"
+            label="Location"
+            component={eventsField}
+          />
+        </div>
       </div>
       <div className="form-group">
         <button type="submit" className="btn btn-default">Submit</button>
