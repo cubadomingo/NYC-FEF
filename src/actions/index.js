@@ -1,44 +1,14 @@
+import axios from 'axios';
 import {
-  SHOW_EVENTS,
-  SHOW_INITIATIVES,
-  SHOW_FUNDRAISERS,
-  SHOW_SCHOLARSHIPS,
   FETCH_EVENTS,
   FETCH_INITIATIVES,
   FETCH_FUNDRAISERS,
   FETCH_SCHOLARSHIPS,
   SET_INITIAL_STYLES,
-  SIGN_IN,
-  SIGN_OUT,
+  AUTH_USER,
+  UNAUTH_USER,
+  AUTH_ERROR,
 } from 'actions/types';
-
-export function toggleEvents(show) {
-  return {
-    type: SHOW_EVENTS,
-    payload: show,
-  };
-}
-
-export function toggleInitiatives(show) {
-  return {
-    type: SHOW_INITIATIVES,
-    payload: show,
-  };
-}
-
-export function toggleFundraisers(show) {
-  return {
-    type: SHOW_FUNDRAISERS,
-    payload: show,
-  };
-}
-
-export function toggleScholarships(show) {
-  return {
-    type: SHOW_SCHOLARSHIPS,
-    payload: show,
-  };
-}
 
 export function fetchEvents() {
   return {
@@ -81,16 +51,35 @@ export function setInitialStyles() {
   };
 }
 
-export function signIn() {
-  return {
-    type: SIGN_IN,
-    payload: true,
+const ROOT_URL = 'http://localhost:3000/api/v1';
+
+export function checkToken() {
+  return function (dispatch) {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      dispatch({ type: AUTH_USER });
+    }
+  };
+}
+
+export function signIn({ username, password }) {
+  return function (dispatch) {
+    axios.post(`${ROOT_URL}/authenticate`, { username, password })
+    .then((res) => {
+      dispatch({ type: AUTH_USER });
+      localStorage.setItem('token', res.data.token);
+    })
+    .catch(err => (
+      dispatch({
+        type: AUTH_ERROR,
+        payload: err.response.data.message,
+      })
+    ));
   };
 }
 
 export function signOut() {
-  return {
-    type: SIGN_OUT,
-    payload: false,
-  };
+  localStorage.removeItem('token');
+  return { type: UNAUTH_USER };
 }

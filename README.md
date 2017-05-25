@@ -1,1 +1,1 @@
-# New York City Financial Empowerement Foundation
+# New York City Financial Empowerment Foundation

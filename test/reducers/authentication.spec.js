@@ -8,15 +8,15 @@ import {
 } from 'actions/index';
 
 describe('Authentication Reducer', () => {
-  xit('initializes the state', () => {
+  it('initializes the state', () => {
     expect(reducer(undefined, {})).to.deep.equal({ authenticated: false });
   });
 
-  it('signs a user in', () => {
+  xit('signs a user in and redirects to home', () => {
     expect(reducer({}, signIn())).to.deep.equal({ authenticated: true });
   });
 
-  it('signs a user out', () => {
+  xit('signs a user out', () => {
     expect(reducer({}, signOut())).to.deep.equal({ authenticated: false });
   });
 

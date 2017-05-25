@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect, Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
-
 import configureStore from 'store/index';
-import { setInitialStyles } from 'actions/index';
+import { setInitialStyles, checkToken } from 'actions/index';
 import Home from 'components/home';
 import About from 'components/about';
 import Activities from 'components/activities';
@@ -17,6 +16,7 @@ const store = configureStore();
 export class App extends React.Component {
   componentDidMount() {
     this.props.setInitialStyles();
+    this.props.checkToken();
   }
 
   render() {
@@ -36,7 +36,7 @@ export class App extends React.Component {
   }
 }
 
-const ConnectedApp = connect(null, { setInitialStyles })(App);
+const ConnectedApp = connect(null, { setInitialStyles, checkToken })(App);
 
 export default () => (
   <Provider store={store}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { signInField } from 'utils/formFields';
@@ -17,19 +18,27 @@ const validate = (values) => {
 };
 
 export const SignIn = (props) => {
-  const handleFormSubmit = ({ username, password }) => {
-    console.log(username, password);
+  const renderAlert = () => {
+    if (props.errorMessage) {
+      return (
+        <div className="alert alert-danger">
+          <strong>Oops!</strong> {props.errorMessage}
+        </div>
+      );
+    }
   };
 
   return (
     props.authenticated ? (
-      <div className="container text-center">
-        <h1> You{"'"}re already signed in! </h1>
-      </div>
+      <Redirect to="/" />
     ) : (
       <div className="container text-center">
         <h1>Sign In</h1>
-        <form onSubmit={props.handleSubmit(handleFormSubmit)}>
+        <form
+          onSubmit={props.handleSubmit(({ username, password }) => {
+            props.signIn({ username, password });
+          })}
+        >
           <Field
             name="username"
             label="Username"
@@ -43,7 +52,9 @@ export const SignIn = (props) => {
             component={signInField}
           />
           <div className="form-group">
-            <button type="submit" className="btn btn-default">Sign In</button>
+            {renderAlert()}
+            {console.log(props)}
+            <button type="submit" disabled={props.submitting} className="btn btn-primary">Sign In</button>
           </div>
         </form>
       </div>
