@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import { Authentication } from '../../src/higherOrderComponents/requireAuth';
+import { Authentication } from 'higherOrderComponents/requireAuth';
 
 describe('Authentication HOC', () => {
   const TestComponent = () => (<div />);

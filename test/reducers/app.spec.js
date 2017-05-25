@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import reducer from '../../src/reducers/app';
-import { setInitialStyles } from '../../src/actions/index';
+import reducer from 'reducers/app';
+import { setInitialStyles } from 'actions/index';
 
 describe('App Reducer', () => {
   it('initializes the state', () => {

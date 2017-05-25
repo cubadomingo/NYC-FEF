@@ -1,24 +1,41 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { expect } from 'chai';
+import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import EventsEdit from '../../src/components/eventsEdit';
-import EventsEditForm from '../../src/components/eventsEditForm';
+import { Field } from 'redux-form';
+import { EventsEdit } from 'components/eventsEdit';
+import { eventsField } from 'utils/formFields';
 
-describe(('EventsEdit Component'), () => {
-  it('contains EventsEditForm Component', () => {
+describe('EventsEdit Component', () => {
+  it('renders 4 fields and a submit button', () => {
     const wrapper = shallow(<EventsEdit />);
 
-    expect(wrapper.find(EventsEditForm).exists()).to.equal(true);
+    expect(wrapper.containsAllMatchingElements([
+      <Field name="title" component={eventsField} />,
+      <Field name="body" component={eventsField} />,
+      <div>
+        <div>
+          <Field name="datetime" component={eventsField} />
+        </div>
+        <div>
+          <Field name="location" component={eventsField} />
+        </div>
+      </div>,
+    ])).to.equal(true);
+
+    expect(wrapper.containsMatchingElement(
+      <button>Submit</button>,
+    )).to.equal(true);
   });
 
-  it('fires eventEditFormSubmit on submit', () => {
-    const eventsEditFormSubmit = sinon.spy();
+  it('calls callback on form submit', () => {
+    const submitEditedEvent = sinon.spy();
     const wrapper = shallow(
-      <EventsEdit eventsEditFormSubmit={eventsEditFormSubmit} />,
+      <EventsEdit submitEditedEvent={submitEditedEvent} />,
     );
 
-    wrapper.find(EventsEditForm).simulate('submit');
-    expect(eventsEditFormSubmit.calledOnce).to.equal(true);
+    wrapper.find('form').simulate('submit');
+
+    expect(submitEditedEvent.calledOnce).to.equal(true);
   });
 });

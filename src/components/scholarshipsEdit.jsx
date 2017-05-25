@@ -19,10 +19,14 @@ const validate = (values) => {
   return errors;
 };
 
-const ScholarshipsEdit = props => (
+export const ScholarshipsEdit = props => (
   <div className="container text-center">
     <h1>Edit Scholarship</h1>
-    <form onSubmit={props.submitEditedScholarship}>
+    <form
+      onSubmit={(data) => {
+        props.submitEditedScholarship(data);
+      }}
+    >
       <Field
         name="title"
         label="Title"

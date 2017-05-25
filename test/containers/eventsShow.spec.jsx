@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import sinon from 'sinon';
-import EventsShow from '../../src/containers/eventsShow';
+import EventsShow from 'containers/eventsShow';
 
 describe('EventsShow Component', () => {
   const event = {

@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import { Route } from 'react-router-dom';
-import Events from '../../src/components/events';
-import ActivitiesNavbar from '../../src/components/activitiesNavbar';
+import Events from 'components/events';
+import ActivitiesNavbar from 'components/activitiesNavbar';
 
 describe('Events Component', () => {
   it('contains routes for new, edit, show, and index', () => {

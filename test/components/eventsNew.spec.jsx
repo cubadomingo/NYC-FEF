@@ -1,24 +1,39 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { expect } from 'chai';
+import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import EventsNew from '../../src/components/eventsNew';
-import EventsNewForm from '../../src/components/eventsNewForm';
+import { Field } from 'redux-form';
+import { EventsNew } from 'components/eventsNew';
+import { eventsField } from 'utils/formFields';
 
-describe(('EventsNew Component'), () => {
-  it('contains EventsNewForm Component', () => {
+describe('EventsNew Component', () => {
+  it('renders 4 fields and a submit button', () => {
     const wrapper = shallow(<EventsNew />);
 
-    expect(wrapper.exists(EventsNewForm)).to.equal(true);
+    expect(wrapper.containsAllMatchingElements([
+      <Field name="title" component={eventsField} />,
+      <Field name="body" component={eventsField} />,
+      <div>
+        <div>
+          <Field name="datetime" component={eventsField} />
+        </div>
+        <div>
+          <Field name="location" component={eventsField} />
+        </div>
+      </div>,
+    ])).to.equal(true);
+
+    expect(wrapper.containsMatchingElement(
+      <button>Submit</button>,
+    )).to.equal(true);
   });
 
-  it('fires eventNewFormSubmit on submit', () => {
-    const eventsNewFormSubmit = sinon.spy();
-    const wrapper = shallow(
-      <EventsNew eventsNewFormSubmit={eventsNewFormSubmit} />,
-    );
+  it('calls callback on form submit', () => {
+    const submitNewEvent = sinon.spy();
+    const wrapper = shallow(<EventsNew submitNewEvent={submitNewEvent} />);
 
-    wrapper.find(EventsNewForm).simulate('submit');
-    expect(eventsNewFormSubmit.calledOnce).to.equal(true);
+    wrapper.find('form').simulate('submit');
+
+    expect(submitNewEvent.calledOnce).to.equal(true);
   });
 });

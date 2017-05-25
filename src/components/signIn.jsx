@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import renderField from 'components/signInFormFields';
+import { signInField } from 'utils/formFields';
 import { mapStateToProps } from 'reducers/authentication';
 import { signIn } from 'actions/index';
 
@@ -34,13 +34,13 @@ export const SignIn = (props) => {
             name="username"
             label="Username"
             type="text"
-            component={renderField}
+            component={signInField}
           />
           <Field
             name="password"
             label="Password"
             type="password"
-            component={renderField}
+            component={signInField}
           />
           <div className="form-group">
             <button type="submit" className="btn btn-default">Sign In</button>

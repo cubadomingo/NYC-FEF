@@ -22,7 +22,11 @@ const validate = (values) => {
 export const ScholarshipsNew = props => (
   <div className="container text-center">
     <h1>Create a New Scholarship</h1>
-    <form onSubmit={props.submitNewScholarship}>
+    <form
+      onSubmit={(data) => {
+        props.submitNewScholarship(data);
+      }}
+    >
       <Field
         name="title"
         label="Title"

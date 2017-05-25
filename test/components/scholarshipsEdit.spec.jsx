@@ -1,24 +1,37 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { expect } from 'chai';
+import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import ScholarshipsEdit from '../../src/components/scholarshipsEdit';
-import ScholarshipsEditForm from '../../src/components/scholarshipsEditForm';
+import { Field } from 'redux-form';
+import { ScholarshipsEdit } from 'components/scholarshipsEdit';
+import { scholarshipsField } from 'utils/formFields';
 
-describe(('ScholarshipsEdit Component'), () => {
-  it('contains ScholarshipsEditForm Component', () => {
+describe('ScholarshipsEdit Component', () => {
+  it('renders 4 fields and a submit button', () => {
     const wrapper = shallow(<ScholarshipsEdit />);
 
-    expect(wrapper.find(ScholarshipsEditForm).exists()).to.equal(true);
+    expect(wrapper.containsAllMatchingElements([
+      <Field name="title" component={scholarshipsField} />,
+      <Field name="description" component={scholarshipsField} />,
+      <Field name="eligibility" component={scholarshipsField} />,
+      <div>
+        <Field name="deadline" component={scholarshipsField} />
+      </div>,
+    ])).to.equal(true);
+
+    expect(wrapper.containsMatchingElement(
+      <button>Submit</button>,
+    )).to.equal(true);
   });
 
-  it('fires scholarshipEditFormSubmit on submit', () => {
-    const scholarshipsEditFormSubmit = sinon.spy();
+  it('calls callback on form submit', () => {
+    const submitEditedScholarship = sinon.spy();
     const wrapper = shallow(
-      <ScholarshipsEdit scholarshipsEditFormSubmit={scholarshipsEditFormSubmit} />,
+      <ScholarshipsEdit submitEditedScholarship={submitEditedScholarship} />,
     );
 
-    wrapper.find(ScholarshipsEditForm).simulate('submit');
-    expect(scholarshipsEditFormSubmit.calledOnce).to.equal(true);
+    wrapper.find('form').simulate('submit');
+
+    expect(submitEditedScholarship.calledOnce).to.equal(true);
   });
 });

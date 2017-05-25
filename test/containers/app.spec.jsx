@@ -1,21 +1,13 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow, mount } from 'enzyme';
-import sinon from 'sinon';
+import { shallow } from 'enzyme';
 import { Route } from 'react-router-dom';
-import { App } from '../../src/containers/app';
-import Navbar from '../../src/components/navbar';
-import Subscribe from '../../src/components/subscribe';
-import Footer from '../../src/components/footer';
+import { App } from 'containers/app';
+import { Navbar } from 'components/navbar';
+import Subscribe from 'components/subscribe';
+import Footer from 'components/footer';
 
 describe('App Container', () => {
-  it('changes the document styles on componentDidMount', () => {
-    const setInitialStyles = sinon.spy();
-
-    mount(<App setInitialStyles={setInitialStyles} />);
-    expect(setInitialStyles.calledOnce).to.equal(true);
-  });
-
   it('contains Layout Components', () => {
     const wrapper = shallow(<App />);
 
@@ -33,7 +25,7 @@ describe('App Container', () => {
       <Route path="/" />,
       <Route path="/about" />,
       <Route path="/activities" />,
-      <Route path="/login" />,
+      <Route path="/signin" />,
     ])).to.equal(true);
   });
 });

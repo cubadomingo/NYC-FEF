@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import EventsIndex from 'components/eventsIndex';
+import EventsList from 'components/eventsList';
 
-export const Events = props => (
+export const EventsIndex = props => (
   <div>
     <h1>Events</h1>
     { props.authenticated ? (
@@ -11,7 +11,7 @@ export const Events = props => (
     ) : (
       null
     )}
-    <EventsIndex />
+    <EventsList />
   </div>
 );
 
@@ -21,4 +21,4 @@ const mapStateToProps = state => (
   }
 );
 
-export default connect(mapStateToProps)(Events);
+export default connect(mapStateToProps)(EventsIndex);

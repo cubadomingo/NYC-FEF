@@ -3,7 +3,7 @@ import { Route, MemoryRouter } from 'react-router-dom';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 
-import Activities from '../../src/components/activities';
+import Activities from 'components/activities';
 
 describe('Activities Component', () => {
   it('contains a root route with category links', () => {

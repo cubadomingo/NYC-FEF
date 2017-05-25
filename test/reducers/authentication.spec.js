@@ -1,11 +1,11 @@
 import { expect } from 'chai';
 import reducer, {
   mapStateToProps,
-} from '../../src/reducers/authentication';
+} from 'reducers/authentication';
 import {
   signIn,
   signOut,
-} from '../../src/actions/index';
+} from 'actions/index';
 
 describe('Authentication Reducer', () => {
   xit('initializes the state', () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import sinon from 'sinon';
-import ScholarshipsShow from '../../src/containers/scholarshipsShow';
+import ScholarshipsShow from 'containers/scholarshipsShow';
 
 describe('ScholarshipsShow Component', () => {
   const scholarship = {

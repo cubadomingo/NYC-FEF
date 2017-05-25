@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import { Link } from 'react-router-dom';
-import { ScholarshipsIndex } from '../../src/containers/scholarshipsIndex';
-import ScholarshipsIndexList from '../../src/components/scholarshipsIndexList';
+import { ScholarshipsIndex } from 'containers/scholarshipsIndex';
+import ScholarshipsList from 'components/scholarshipsList';
 
 describe('ScholarshipsIndex Container', () => {
   it('contains ScholarshipsIndexList Component', () => {
@@ -11,7 +11,7 @@ describe('ScholarshipsIndex Container', () => {
       <ScholarshipsIndex match={{ url: '/activities/scholarships' }} />,
     );
 
-    expect(wrapper.find(ScholarshipsIndexList).exists()).to.equal(true);
+    expect(wrapper.find(ScholarshipsList).exists()).to.equal(true);
   });
 
   it('contains Link to create a new scholarship if logged in', () => {

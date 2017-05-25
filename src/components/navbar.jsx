@@ -8,7 +8,7 @@ import {
 } from 'actions/index';
 import styles from 'styles/navbar.scss';
 
-const Navbar = props => (
+export const Navbar = props => (
   <nav
     styleName="navbar"
     className="navbar navbar-toggleable-md fixed-top navbar-light"

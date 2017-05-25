@@ -22,7 +22,11 @@ const validate = (values) => {
 export const EventsEdit = props => (
   <div className="container text-center">
     <h1>Edit Event</h1>
-    <form onSubmit={props.submitEditedEvent}>
+    <form
+      onSubmit={(data) => {
+        props.submitEditedEvent(data);
+      }}
+    >
       <Field
         name="title"
         label="Title"

@@ -1,11 +1,11 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import Home from '../../src/components/home';
-import BackgroundImage from '../../src/components/homeImage';
-import Tagline from '../../src/components/tagline';
-import InformationRow from '../../src/components/informationRow';
-import Leadership from '../../src/components/leadership';
+import Home from 'components/home';
+import BackgroundImage from 'components/homeImage';
+import Tagline from 'components/tagline';
+import InformationRow from 'components/informationRow';
+import Leadership from 'components/leadership';
 
 describe('Home Component', () => {
   it('should render 4 Components', () => {
