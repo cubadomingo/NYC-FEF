@@ -53,8 +53,7 @@ export const SignIn = (props) => {
           />
           <div className="form-group">
             {renderAlert()}
-            {console.log(props)}
-            <button type="submit" disabled={props.submitting} className="btn btn-primary">Sign In</button>
+            <button type="submit" className="btn btn-primary">Sign In</button>
           </div>
         </form>
       </div>
