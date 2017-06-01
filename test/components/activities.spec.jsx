@@ -6,7 +6,7 @@ import { shallow, mount } from 'enzyme';
 import Activities from 'components/activities';
 
 describe('Activities Component', () => {
-  it('contains a root route with category links', () => {
+  xit('contains a root route with category links', () => {
     const wrapper = mount(
       <MemoryRouter initialEntries={['/activities']}>
         <Activities match={{ url: '/activities' }} />

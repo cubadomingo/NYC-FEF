@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import ActivitiesRoot from 'components/activitiesRoot';
+import ActivitiesRoot from 'containers/activitiesRoot';
 import Events from 'components/events';
 import Scholarships from 'components/scholarships';
 

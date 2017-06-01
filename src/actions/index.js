@@ -3,9 +3,21 @@ import {
   AUTH_USER,
   UNAUTH_USER,
   AUTH_ERROR,
+  FETCH_EVENTS,
 } from 'actions/types';
 
 const ROOT_URL = 'http://localhost:3000/api/v1';
+
+export function fetchEvents() {
+  return function (dispatch) {
+    axios.get(`${ROOT_URL}/events`, {
+      headers: { 'x-access-token': localStorage.getItem('token') },
+    })
+    .then((res) => {
+      dispatch({ type: FETCH_EVENTS, payload: res.data });
+    });
+  };
+}
 
 export function signIn({ username, password }) {
   return function (dispatch) {
