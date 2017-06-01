@@ -12,7 +12,6 @@ import {
 import {
   AUTH_USER,
   AUTH_ERROR,
-  UNAUTH_USER,
 } from 'actions/types';
 
 const middlewares = [thunk];
