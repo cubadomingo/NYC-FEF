@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchEvents } from 'actions';
+import { fetchLatestEvent } from 'actions';
 import { mapStateToProps } from 'reducers/events';
 
 export class ActivitiesRoot extends Component {
   componentDidMount() {
-    this.props.fetchEvents();
+    this.props.fetchLatestEvent();
     this.renderEvent = this.renderEvent.bind(this);
   }
 
   renderEvent() {
     return (
       <div>
-        <h4>{this.props.latestEvent.title}</h4>
+        <h4>
+          <Link
+            to={`${this.props.match.url}/events/${this.props.latestEvent.id}`}
+          >{this.props.latestEvent.title}
+          </Link>
+        </h4>
         <h5>{this.props.latestEvent.location}</h5>
         <h5>{this.props.latestEvent.datetime}</h5>
         <p>{this.props.latestEvent.description}</p>
@@ -58,4 +63,4 @@ export class ActivitiesRoot extends Component {
   }
 }
 
-export default connect(mapStateToProps, { fetchEvents })(ActivitiesRoot);
+export default connect(mapStateToProps, { fetchLatestEvent })(ActivitiesRoot);

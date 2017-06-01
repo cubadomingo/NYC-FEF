@@ -21,18 +21,18 @@ describe('ActivitiesRoot', function () {
   });
 
   it('fetches events on component mount', function () {
-    const fetchEvents = sinon.spy();
+    const fetchLatestEvent = sinon.spy();
 
     mount(
       <MemoryRouter>
         <ActivitiesRoot
-          fetchEvents={fetchEvents}
+          fetchLatestEvent={fetchLatestEvent}
           match={{ url: '/activities' }}
         />
       </MemoryRouter>,
     );
 
-    expect(fetchEvents.calledOnce).to.equal(true);
+    expect(fetchLatestEvent.calledOnce).to.equal(true);
   });
 
   it('renders a message if there are no events', function () {
@@ -45,6 +45,7 @@ describe('ActivitiesRoot', function () {
 
   it('renders the latest event', function () {
     const latestEvent = {
+      id: 1,
       title: 'sample',
       description: 'lorem ipsum',
       datetime: 'time..',
@@ -63,7 +64,6 @@ describe('ActivitiesRoot', function () {
     )).to.equal(false);
 
     expect(wrapper.contains([
-      <h4>{latestEvent.title}</h4>,
       <h5>{latestEvent.location}</h5>,
       <h5>{latestEvent.datetime}</h5>,
       <p>{latestEvent.description}</p>,

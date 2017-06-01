@@ -60,26 +60,46 @@ describe('EventsIndex Container', function () {
   });
 
   it('renders events', function () {
-    const events = [{
-      id: 1,
-      title: 'sample',
-      description: 'lorem',
-      datetime: 'sometime',
-      location: 'somewhere',
-    }];
+    const events = {
+      1: {
+        id: 1,
+        title: 'sample',
+        description: 'lorem',
+        datetime: 'sometime',
+        location: 'somewhere',
+      },
+      2: {
+        id: 2,
+        title: 'sample',
+        description: 'lorem',
+        datetime: 'sometime',
+        location: 'somewhere',
+      },
+    };
 
     const wrapper = shallow(
       <EventsIndex
-        match={{ url: '/activites/events' }}
+        match={{ url: '/activities/events' }}
         events={events}
       />,
     );
 
+    expect(wrapper.find('Link')).to.have.length(2);
+    expect(wrapper.find({
+      to: '/activities/events/1',
+    }).exists()).to.equal(true);
+    expect(wrapper.find({
+      to: '/activities/events/2',
+    }).exists()).to.equal(true);
     expect(wrapper.contains([
-      <h4>{events[0].title}</h4>,
-      <h5>{events[0].location}</h5>,
-      <h5>{events[0].datetime}</h5>,
-      <p>{events[0].description}</p>,
+      <h5>{events[1].location}</h5>,
+      <h5>{events[1].datetime}</h5>,
+      <p>{events[1].description}</p>,
+    ])).to.equal(true);
+    expect(wrapper.contains([
+      <h5>{events[2].location}</h5>,
+      <h5>{events[2].datetime}</h5>,
+      <p>{events[2].description}</p>,
     ])).to.equal(true);
   });
 });

@@ -11,9 +11,12 @@ export class EventsIndex extends Component {
   }
 
   eventsList() {
-    return this.props.events.map(event => (
+    return Object.values(this.props.events).map(event => (
       <div key={event.id}>
-        <h4>{event.title}</h4>
+        <h4><Link
+          to={`${this.props.match.url}/${event.id}`}
+        >{event.title}
+        </Link></h4>
         <h5>{event.location}</h5>
         <h5>{event.datetime}</h5>
         <p>{event.description}</p>

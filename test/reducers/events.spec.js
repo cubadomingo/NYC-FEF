@@ -39,7 +39,7 @@ describe('Events Reducer', function () {
       location: 'somewhere',
     }];
 
-    const expectedActions = [{ type: FETCH_EVENTS, payload: { events } }];
+    const expectedActions = [{ type: FETCH_EVENTS, payload: events }];
 
     store.dispatch(fetchEvents());
 
@@ -60,10 +60,18 @@ describe('Events Reducer', function () {
   });
 
   it('should initialize state', function () {
-    expect(reducer(undefined, {})).to.deep.equal({ events: [] });
+    expect(reducer(undefined, {})).to.deep.equal({ events: {}, latestEvent: [] });
   });
 
   it('should mapStateToProps', function () {
+    const ownProps = {
+      match: {
+        params: {
+          id: 1,
+        },
+      },
+    };
+
     const state = {
       authenticate: {
         authenticated: true,
@@ -73,8 +81,9 @@ describe('Events Reducer', function () {
       },
     };
 
-    expect(mapStateToProps(state)).to.deep.equal({
+    expect(mapStateToProps(state, ownProps)).to.deep.equal({
       events: [],
+      event: undefined,
       authenticated: true,
       latestEvent: undefined,
     });

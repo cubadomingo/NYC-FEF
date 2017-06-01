@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { mapStateToProps } from 'reducers/events';
+import { fetchEvent } from 'actions';
 
-export default class EventsShow extends Component {
+export class EventsShow extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     this.props.fetchEvent(id);
@@ -8,6 +11,10 @@ export default class EventsShow extends Component {
 
   render() {
     const { event } = this.props;
+    if (!event) {
+      return <div>Loading...</div>;
+    }
+
     return (
       <div>
         <h1>{event.title}</h1>
@@ -19,3 +26,5 @@ export default class EventsShow extends Component {
     );
   }
 }
+
+export default connect(mapStateToProps, { fetchEvent })(EventsShow);
