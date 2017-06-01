@@ -65,6 +65,9 @@ describe('Events Reducer', function () {
 
   it('should mapStateToProps', function () {
     const state = {
+      authenticate: {
+        authenticated: true,
+      },
       events: {
         events: [],
       },
@@ -72,6 +75,7 @@ describe('Events Reducer', function () {
 
     expect(mapStateToProps(state)).to.deep.equal({
       events: [],
+      authenticated: true,
       latestEvent: undefined,
     });
   });

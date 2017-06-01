@@ -16,6 +16,7 @@ export default function (state = initialState, action) {
 }
 
 export const mapStateToProps = state => ({
+  authenticated: state.authenticate.authenticated,
   events: state.events.events,
   latestEvent: state.events.events[state.events.events.length - 1],
 });
