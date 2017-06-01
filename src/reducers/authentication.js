@@ -6,7 +6,6 @@ import {
 
 const initialState = {
   authenticated: false,
-  redirect: false,
   error: null,
 };
 
@@ -25,6 +24,5 @@ export default function (state = initialState, action) {
 
 export const mapStateToProps = state => ({
   authenticated: state.authenticate.authenticated,
-  redirect: state.authenticate.redirect,
   errorMessage: state.authenticate.error,
 });
