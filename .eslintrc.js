@@ -20,5 +20,6 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 0,
     'import/no-unresolved': 0,
     'no-underscore-dangle': 0,
+    'prefer-arrow-callback': 0,
   },
 };
