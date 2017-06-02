@@ -6,6 +6,9 @@ import {
   FETCH_EVENTS,
   FETCH_EVENT,
   FETCH_LAST_EVENT,
+  EVENT_SUBMIT_SUCCESS,
+  EVENT_SUBMIT_ERROR,
+  EVENT_DELETE_SUCCESS,
 } from 'actions/types';
 
 const ROOT_URL = 'http://localhost:3000/api/v1';
@@ -15,6 +18,34 @@ export function fetchEvent(id) {
     axios.get(`${ROOT_URL}/events/${id}`)
     .then((res) => {
       dispatch({ type: FETCH_EVENT, payload: res.data.event[0] });
+    });
+  };
+}
+
+export function deleteEvent(id) {
+  return function (dispatch) {
+    axios.delete(`${ROOT_URL}/events/${id}`, {
+      headers: { 'x-access-token': localStorage.getItem('token') },
+    })
+    .then(() => {
+      dispatch({ type: EVENT_DELETE_SUCCESS });
+    });
+  };
+}
+
+export function submitNewEvent(data) {
+  return function (dispatch) {
+    axios.post(`${ROOT_URL}/events`, data, {
+      headers: { 'x-access-token': localStorage.getItem('token') },
+    })
+    .then((res) => {
+      dispatch({ type: EVENT_SUBMIT_SUCCESS, payload: res.data.event[0] });
+    })
+    .catch((err) => {
+      dispatch({
+        type: EVENT_SUBMIT_ERROR,
+        payload: err.response.data.message,
+      });
     });
   };
 }

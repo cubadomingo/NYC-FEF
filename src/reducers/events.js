@@ -3,11 +3,14 @@ import {
   FETCH_EVENTS,
   FETCH_EVENT,
   FETCH_LAST_EVENT,
+  EVENT_SUBMIT_SUCCESS,
+  EVENT_DELETE_SUCCESS,
 } from 'actions/types';
 
 const initialState = {
   events: {},
   latestEvent: [],
+  newPost: [],
 };
 
 export default function (state = initialState, action) {
@@ -18,6 +21,10 @@ export default function (state = initialState, action) {
       return { events: _.mapKeys(action.payload, 'id') };
     case FETCH_LAST_EVENT:
       return { ...state, latestEvent: action.payload };
+    case EVENT_SUBMIT_SUCCESS:
+      return { ...state, submitSuccess: true, newPostId: action.payload.id };
+    case EVENT_DELETE_SUCCESS:
+      return { ...state, deleteSuccess: true };
     default:
       return state;
   }
@@ -28,4 +35,7 @@ export const mapStateToProps = (state, ownProps) => ({
   events: state.events.events,
   event: state.events.events[ownProps.match.params.id],
   latestEvent: state.events.latestEvent,
+  deleteSuccess: state.events.deleteSuccess,
+  submitSuccess: state.events.submitSuccess,
+  newPostId: state.events.newPostId,
 });

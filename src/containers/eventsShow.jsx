@@ -19,8 +19,7 @@ export class EventsShow extends Component {
       <div>
         <h1>{event.title}</h1>
         <h3>At {event.location}</h3>
-        <h4>{event.date}</h4>
-        <h4>{event.time}</h4>
+        <h4>{event.datetime}</h4>
         <p>{event.description}</p>
       </div>
     );

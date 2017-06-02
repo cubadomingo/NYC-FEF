@@ -60,7 +60,7 @@ describe('Events Reducer', function () {
   });
 
   it('should initialize state', function () {
-    expect(reducer(undefined, {})).to.deep.equal({ events: {}, latestEvent: [] });
+    expect(reducer(undefined, {})).to.deep.equal({ events: {}, latestEvent: [], newPost: [] });
   });
 
   it('should mapStateToProps', function () {
@@ -78,6 +78,10 @@ describe('Events Reducer', function () {
       },
       events: {
         events: [],
+        submitSuccess: undefined,
+        deleteSuccess: undefined,
+        latestEvent: [],
+        newPostId: undefined,
       },
     };
 
@@ -85,7 +89,10 @@ describe('Events Reducer', function () {
       events: [],
       event: undefined,
       authenticated: true,
-      latestEvent: undefined,
+      newPostId: undefined,
+      submitSuccess: undefined,
+      deleteSuccess: undefined,
+      latestEvent: [],
     });
   });
 });

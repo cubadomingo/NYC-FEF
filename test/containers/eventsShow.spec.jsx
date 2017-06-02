@@ -8,9 +8,9 @@ describe('EventsShow Component', () => {
   const event = {
     id: 1,
     title: 'Sample Event',
-    date: '12/1/18',
-    time: '7:00 pm',
+    datetime: 'sometime',
     description: 'Lorem Ipsum...',
+    location: 'somewhere',
   };
 
   it('fetches event on component mount', () => {
@@ -20,23 +20,16 @@ describe('EventsShow Component', () => {
     expect(fetchEvent.calledOnce).to.equal(true);
   });
 
-  xit('renders event title, date, time, and description', () => {
-    const wrapper = shallow(<EventsShow match={{ params: 1 }} event={event} />);
+  it('renders event title, date, time, and description', () => {
+    const wrapper = shallow(
+      <EventsShow match={{ params: event.id }} event={event} />,
+    );
 
-    expect(wrapper.containsMatchingElement(
-      <div>
-        <h1>{event.title}</h1>
-        <h3>At {event.location}</h3>
-        <h4>{event.date}</h4>
-        <h4>{event.time}</h4>
-        <p>{event.description}</p>
-      </div>,
-    )).to.equal(true);
-
-    expect(wrapper.find('Link')).to.equal(2);
-
-    expect(wrapper.find({
-      to: '/activities/events/1',
-    }).exists()).to.equal(true);
+    expect(wrapper.contains([
+      <h1>{event.title}</h1>,
+      <h3>At {event.location}</h3>,
+      <h4>{event.datetime}</h4>,
+      <p>{event.description}</p>,
+    ])).to.equal(true);
   });
 });
