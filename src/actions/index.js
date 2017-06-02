@@ -40,12 +40,6 @@ export function submitNewEvent(data) {
     })
     .then((res) => {
       dispatch({ type: EVENT_SUBMIT_SUCCESS, payload: res.data.event[0] });
-    })
-    .catch((err) => {
-      dispatch({
-        type: EVENT_SUBMIT_ERROR,
-        payload: err.response.data.message,
-      });
     });
   };
 }

@@ -7,9 +7,13 @@ import reducer, {
 } from 'reducers/events';
 import {
   fetchEvents,
+  fetchEvent,
+  fetchLatestEvent,
 } from 'actions/index';
 import {
   FETCH_EVENTS,
+  FETCH_EVENT,
+  FETCH_LAST_EVENT,
 } from 'actions/types';
 
 const middlewares = [thunk];
@@ -42,6 +46,72 @@ describe('Events Reducer', function () {
     const expectedActions = [{ type: FETCH_EVENTS, payload: events }];
 
     store.dispatch(fetchEvents());
+
+    moxios.wait(function () {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: { events },
+      })
+      .then(() => {
+        expect(store.getActions()).to.deep.equal(expectedActions);
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+    });
+  });
+
+
+  it('dispatches FETCH_EVENT', function (done) {
+    const store = mockStore({});
+    const event = [{
+      id: 1,
+      title: 'sample 1',
+      description: 'lorem',
+      datetime: 'sometime',
+      location: 'somewhere',
+    }];
+
+    const expectedActions = [{ type: FETCH_EVENT, payload: event[0] }];
+
+    store.dispatch(fetchEvent());
+
+    moxios.wait(function () {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: { event },
+      })
+      .then(() => {
+        expect(store.getActions()).to.deep.equal(expectedActions);
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+    });
+  });
+
+  it('dispatches FETCH_LAST_EVENT', function (done) {
+    const store = mockStore({});
+    const events = [{
+      title: 'sample 1',
+      description: 'lorem',
+      datetime: 'sometime',
+      location: 'somewhere',
+    },
+    {
+      title: 'sample 2',
+      description: 'lorem',
+      datetime: 'sometime',
+      location: 'somewhere',
+    }];
+
+    const expectedActions = [{ type: FETCH_LAST_EVENT, payload: events[1] }];
+
+    store.dispatch(fetchLatestEvent());
 
     moxios.wait(function () {
       const request = moxios.requests.mostRecent();
