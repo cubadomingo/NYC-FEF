@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchEvents } from 'actions';
+import { fetchEvents, deleteEvent } from 'actions';
 import { mapStateToProps } from 'reducers/events';
 
 export class EventsIndex extends Component {
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.fetchEvents();
     this.eventsList = this.eventsList.bind(this);
   }
@@ -20,6 +21,10 @@ export class EventsIndex extends Component {
         <h5>{event.location}</h5>
         <h5>{event.datetime}</h5>
         <p>{event.description}</p>
+        <a
+          className="btn btn-secondary"
+          onClick={() => { this.props.deleteEvent(event.id); }}
+        >Delete</a>
       </div>
     ));
   }
@@ -27,6 +32,7 @@ export class EventsIndex extends Component {
   render() {
     return (
       <div className="container">
+        { this.props.deleteSuccess ? <div className="alert alert-success">event deleted</div> : null }
         <h1>Events</h1>
         { this.props.authenticated ? (
           <Link to={`${this.props.match.url}/new`}>Create a New Event</Link>
@@ -39,4 +45,7 @@ export class EventsIndex extends Component {
   }
 }
 
-export default connect(mapStateToProps, { fetchEvents })(EventsIndex);
+export default connect(
+  mapStateToProps,
+  { fetchEvents, deleteEvent },
+)(EventsIndex);

@@ -62,7 +62,7 @@ export const SignIn = (props) => {
 };
 
 const connectedForm = reduxForm({
-  form: 'new-event',
+  form: 'sign-in',
   validate,
 })(SignIn);
 
