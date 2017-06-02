@@ -23,8 +23,13 @@ export default function (state = initialState, action) {
       return { ...state, latestEvent: action.payload };
     case EVENT_SUBMIT_SUCCESS:
       return { ...state, submitSuccess: true, newPostId: action.payload.id };
-    case EVENT_DELETE_SUCCESS:
-      return { ...state, deleteSuccess: true };
+    case EVENT_DELETE_SUCCESS: {
+      return {
+        ...state,
+        events: _.omit(state.events, action.payload.id),
+        deleteSuccess: true,
+      };
+    }
     default:
       return state;
   }

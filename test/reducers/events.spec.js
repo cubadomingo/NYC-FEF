@@ -9,11 +9,13 @@ import {
   fetchEvents,
   fetchEvent,
   fetchLatestEvent,
+  deleteEvent,
 } from 'actions/index';
 import {
   FETCH_EVENTS,
   FETCH_EVENT,
   FETCH_LAST_EVENT,
+  EVENT_DELETE_SUCCESS,
 } from 'actions/types';
 
 const middlewares = [thunk];
@@ -26,6 +28,48 @@ describe('Events Reducer', function () {
 
   afterEach(function () {
     moxios.uninstall();
+  });
+
+  it('dispatches EVENT_DELETE_SUCCESS', function (done) {
+    const event = [{
+      id: 1,
+      title: 'sample 1',
+      description: 'lorem',
+      datetime: 'sometime',
+      location: 'somewhere',
+    }];
+
+    const state = {
+      events: {
+        1: event[0],
+      },
+    };
+
+    const store = mockStore({});
+
+    const expectedActions = [{ type: EVENT_DELETE_SUCCESS, payload: event[0] }];
+
+    store.dispatch(deleteEvent(1));
+
+    moxios.wait(function () {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: { event },
+      })
+      .then(() => {
+        expect(reducer(state, store.getActions()[0])).to.deep.equal({
+          events: {},
+          deleteSuccess: true,
+        });
+
+        expect(store.getActions()).to.deep.equal(expectedActions);
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+    });
   });
 
   it('dispatches FETCH_EVENTS', function (done) {

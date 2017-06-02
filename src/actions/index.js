@@ -7,7 +7,6 @@ import {
   FETCH_EVENT,
   FETCH_LAST_EVENT,
   EVENT_SUBMIT_SUCCESS,
-  EVENT_SUBMIT_ERROR,
   EVENT_DELETE_SUCCESS,
 } from 'actions/types';
 
@@ -27,8 +26,8 @@ export function deleteEvent(id) {
     axios.delete(`${ROOT_URL}/events/${id}`, {
       headers: { 'x-access-token': localStorage.getItem('token') },
     })
-    .then(() => {
-      dispatch({ type: EVENT_DELETE_SUCCESS });
+    .then((res) => {
+      dispatch({ type: EVENT_DELETE_SUCCESS, payload: res.data.event[0] });
     });
   };
 }
