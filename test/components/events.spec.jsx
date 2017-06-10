@@ -13,7 +13,7 @@ describe('Events Component', () => {
       <Route path="/activities/events" />,
       <Route path="/activities/events/new" />,
       <Route path="/activities/events/:id" />,
-      <Route path="/activities/events/:id/edit" />,
+      <Route path="/activities/events/edit/:id" />,
     ])).to.equal(true);
   });
 

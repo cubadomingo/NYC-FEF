@@ -40,14 +40,14 @@ describe('Events Reducer', function () {
     }];
 
     const state = {
-      events: {
+      data: {
         1: event[0],
       },
     };
 
     const store = mockStore({});
 
-    const expectedActions = [{ type: EVENT_DELETE_SUCCESS, payload: event[0] }];
+    const expectedActions = [{ type: EVENT_DELETE_SUCCESS, payload: event[0].id }];
 
     store.dispatch(deleteEvent(1));
 
@@ -59,7 +59,7 @@ describe('Events Reducer', function () {
       })
       .then(() => {
         expect(reducer(state, store.getActions()[0])).to.deep.equal({
-          events: {},
+          data: {},
           deleteSuccess: true,
         });
 
@@ -174,7 +174,7 @@ describe('Events Reducer', function () {
   });
 
   it('should initialize state', function () {
-    expect(reducer(undefined, {})).to.deep.equal({ events: {}, latestEvent: [], newPost: [] });
+    expect(reducer(undefined, {})).to.deep.equal({ data: {}, latestEvent: [], newPost: [] });
   });
 
   it('should mapStateToProps', function () {
@@ -191,7 +191,7 @@ describe('Events Reducer', function () {
         authenticated: true,
       },
       events: {
-        events: [],
+        data: [],
         submitSuccess: undefined,
         deleteSuccess: undefined,
         latestEvent: [],
@@ -204,7 +204,10 @@ describe('Events Reducer', function () {
       event: undefined,
       authenticated: true,
       newPostId: undefined,
+      editPostId: undefined,
+      editSuccess: undefined,
       submitSuccess: undefined,
+      initialValues: undefined,
       deleteSuccess: undefined,
       latestEvent: [],
     });

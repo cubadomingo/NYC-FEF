@@ -4,7 +4,7 @@ import ActivitiesNavbar from 'components/activitiesNavbar';
 import EventsIndex from 'containers/eventsIndex';
 import EventsNew from 'components/eventsNew';
 import EventsShow from 'containers/eventsShow';
-import EventsEdit from 'components/eventsEdit';
+import EventsEdit from 'containers/eventsEdit';
 
 const Events = ({ match }) => (
   <div className="text-center">
@@ -13,7 +13,7 @@ const Events = ({ match }) => (
       <Route exact path={`${match.url}`} component={EventsIndex} />
       <Route path={`${match.url}/new`} component={EventsNew} />
       <Route exact path={`${match.url}/:id`} component={EventsShow} />
-      <Route path={`${match.url}/:id/edit`} component={EventsEdit} />
+      <Route path={`${match.url}/edit/:id`} component={EventsEdit} />
     </Switch>
   </div>
 );

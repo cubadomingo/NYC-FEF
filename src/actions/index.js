@@ -8,6 +8,7 @@ import {
   FETCH_LAST_EVENT,
   EVENT_SUBMIT_SUCCESS,
   EVENT_DELETE_SUCCESS,
+  EVENT_EDIT_SUCCESS,
 } from 'actions/types';
 
 const ROOT_URL = 'http://localhost:3000/api/v1';
@@ -26,11 +27,28 @@ export function deleteEvent(id) {
     axios.delete(`${ROOT_URL}/events/${id}`, {
       headers: { 'x-access-token': localStorage.getItem('token') },
     })
-    .then((res) => {
-      dispatch({ type: EVENT_DELETE_SUCCESS, payload: res.data.event[0] });
+    .then(() => {
+      dispatch({ type: EVENT_DELETE_SUCCESS, payload: id });
     });
   };
 }
+
+export function editEvent(data) {
+  return function (dispatch) {
+    const id = data.id;
+    delete data.id;
+    delete data.created_at;
+    delete data.updated_at;
+
+    axios.put(`${ROOT_URL}/events/${id}`, data, {
+      headers: { 'x-access-token': localStorage.getItem('token') },
+    })
+    .then((res) => {
+      dispatch({ type: EVENT_EDIT_SUCCESS, payload: res.data.event[0].id });
+    });
+  };
+}
+
 
 export function submitNewEvent(data) {
   return function (dispatch) {
@@ -38,7 +56,7 @@ export function submitNewEvent(data) {
       headers: { 'x-access-token': localStorage.getItem('token') },
     })
     .then((res) => {
-      dispatch({ type: EVENT_SUBMIT_SUCCESS, payload: res.data.event[0] });
+      dispatch({ type: EVENT_SUBMIT_SUCCESS, payload: res.data.event[0].id });
     });
   };
 }

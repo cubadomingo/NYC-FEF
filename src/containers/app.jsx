@@ -14,7 +14,7 @@ import Footer from 'components/footer';
 const store = configureStore();
 
 export class App extends React.Component {
-  componentDidMount() {
+  componentWillMount() {
     setInitialStyles();
     checkToken(store);
   }

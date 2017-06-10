@@ -5,10 +5,11 @@ import {
   FETCH_LAST_EVENT,
   EVENT_SUBMIT_SUCCESS,
   EVENT_DELETE_SUCCESS,
+  EVENT_EDIT_SUCCESS,
 } from 'actions/types';
 
 const initialState = {
-  events: {},
+  data: {},
   latestEvent: [],
   newPost: [],
 };
@@ -16,31 +17,36 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case FETCH_EVENT:
-      return { ...state, events: { [action.payload.id]: action.payload } };
+      return { ...state, data: { [action.payload.id]: action.payload } };
     case FETCH_EVENTS:
-      return { events: _.mapKeys(action.payload, 'id') };
+      return { data: _.mapKeys(action.payload, 'id') };
     case FETCH_LAST_EVENT:
       return { ...state, latestEvent: action.payload };
     case EVENT_SUBMIT_SUCCESS:
-      return { ...state, submitSuccess: true, newPostId: action.payload.id };
+      return { ...state, submitSuccess: true, newPostId: action.payload };
     case EVENT_DELETE_SUCCESS: {
       return {
         ...state,
-        events: _.omit(state.events, action.payload.id),
+        data: _.omit(state.data, action.payload),
         deleteSuccess: true,
       };
     }
+    case EVENT_EDIT_SUCCESS:
+      return { ...state, editSuccess: true, editPostId: action.payload };
     default:
       return state;
   }
 }
 
-export const mapStateToProps = (state, ownProps) => ({
-  authenticated: state.authenticate.authenticated,
-  events: state.events.events,
-  event: state.events.events[ownProps.match.params.id],
-  latestEvent: state.events.latestEvent,
-  deleteSuccess: state.events.deleteSuccess,
-  submitSuccess: state.events.submitSuccess,
-  newPostId: state.events.newPostId,
+export const mapStateToProps = ({ events, authenticate }, ownProps) => ({
+  authenticated: authenticate.authenticated,
+  events: events.data,
+  event: events.data[ownProps.match.params.id],
+  latestEvent: events.latestEvent,
+  deleteSuccess: events.deleteSuccess,
+  submitSuccess: events.submitSuccess,
+  initialValues: events.data[ownProps.match.params.id],
+  editSuccess: events.editSuccess,
+  editPostId: events.editPostId,
+  newPostId: events.newPostId,
 });

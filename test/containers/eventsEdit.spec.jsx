@@ -3,16 +3,19 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { Field } from 'redux-form';
-import { EventsEdit } from 'components/eventsEdit';
+import { EventsEdit } from 'containers/eventsEdit';
 import { eventsField } from 'utils/formFields';
+
 
 describe('EventsEdit Component', () => {
   it('renders 4 fields and a submit button', () => {
-    const wrapper = shallow(<EventsEdit />);
+    const wrapper = shallow(
+      <EventsEdit handleSubmit={() => {}} />,
+    );
 
     expect(wrapper.containsAllMatchingElements([
       <Field name="title" component={eventsField} />,
-      <Field name="body" component={eventsField} />,
+      <Field name="description" component={eventsField} />,
       <div>
         <div>
           <Field name="datetime" component={eventsField} />
@@ -29,13 +32,18 @@ describe('EventsEdit Component', () => {
   });
 
   it('calls callback on form submit', () => {
-    const submitEditedEvent = sinon.spy();
+    const editEvent = sinon.spy();
+    const handleSubmit = fn => (fn);
+
     const wrapper = shallow(
-      <EventsEdit submitEditedEvent={submitEditedEvent} />,
+      <EventsEdit
+        editEvent={editEvent}
+        handleSubmit={handleSubmit}
+      />,
     );
 
     wrapper.find('form').simulate('submit');
 
-    expect(submitEditedEvent.calledOnce).to.equal(true);
+    expect(editEvent.calledOnce).to.equal(true);
   });
 });

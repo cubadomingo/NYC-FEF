@@ -6,9 +6,12 @@ import { mapStateToProps } from 'reducers/events';
 
 export class EventsIndex extends Component {
   componentDidMount() {
-    window.scrollTo(0, 0);
     this.props.fetchEvents();
     this.eventsList = this.eventsList.bind(this);
+  }
+
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
   }
 
   eventsList() {
@@ -21,10 +24,19 @@ export class EventsIndex extends Component {
         <h5>{event.location}</h5>
         <h5>{event.datetime}</h5>
         <p>{event.description}</p>
-        <a
-          className="btn btn-secondary"
-          onClick={() => { this.props.deleteEvent(event.id); }}
-        >Delete</a>
+        {this.props.authenticated ? (
+          <div>
+            <a
+              className="btn btn-secondary"
+              onClick={() => { this.props.deleteEvent(event.id); }}
+            >Delete</a>
+            <Link
+              className="btn btn-secondary"
+              to={`${this.props.match.url}/edit/${event.id}`}
+            >Edit</Link>
+          </div>
+        ) : null}
+
       </div>
     ));
   }

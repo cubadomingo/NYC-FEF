@@ -12,6 +12,7 @@ module.exports = {
     'react/prop-types': 0,
     'no-console': 1,
     'max-len': 0,
+    "no-param-reassign": 0,
     'func-names': 0,
     'consistent-return': 0,
     'import/extensions': 0,

@@ -11,12 +11,16 @@ export class EventsShow extends Component {
 
   render() {
     const { event } = this.props;
+
     if (!event) {
       return <div>Loading...</div>;
     }
 
     return (
       <div>
+        { this.props.editSuccess ? (
+          <div className="alert alert-success">edited succesfully!</div>
+        ) : null }
         <h1>{event.title}</h1>
         <h3>At {event.location}</h3>
         <h4>{event.datetime}</h4>
