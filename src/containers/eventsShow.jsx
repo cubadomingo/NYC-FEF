@@ -19,7 +19,7 @@ export class EventsShow extends Component {
     return (
       <div>
         { this.props.editSuccess ? (
-          <div className="alert alert-success">edited succesfully!</div>
+          <div className="alert alert-success">edited successfully!</div>
         ) : null }
         <h1>{event.title}</h1>
         <h3>At {event.location}</h3>

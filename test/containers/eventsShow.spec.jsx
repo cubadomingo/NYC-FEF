@@ -32,4 +32,31 @@ describe('EventsShow Component', () => {
       <p>{event.description}</p>,
     ])).to.equal(true);
   });
+
+  it('renders success message on editSuccess', () => {
+    const wrapper = shallow(
+      <EventsShow
+        editSuccess
+        match={{ params: event.id }}
+        event={event}
+      />,
+    );
+
+    expect(
+      wrapper.containsMatchingElement(<div>edited successfully!</div>),
+    ).to.equal(true);
+  });
+
+  it('renders no message if editSuccess is false', () => {
+    const wrapper = shallow(
+      <EventsShow
+        match={{ params: event.id }}
+        event={event}
+      />,
+    );
+
+    expect(
+      wrapper.containsMatchingElement(<div>edited successfully!</div>),
+    ).to.equal(false);
+  });
 });
