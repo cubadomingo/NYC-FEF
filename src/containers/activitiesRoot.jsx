@@ -1,13 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchLatestEvent } from 'actions';
+import { fetchLatestEvent, fetchLatestScholarship } from 'actions';
 import { mapStateToProps } from 'reducers/events';
 
 export class ActivitiesRoot extends Component {
   componentDidMount() {
     this.props.fetchLatestEvent();
+    this.props.fetchLatestScholarship();
     this.renderEvent = this.renderEvent.bind(this);
+    this.renderScholarship = this.renderScholarship.bind(this);
+  }
+
+  renderScholarship() {
+    const { url } = this.props.match;
+    const {
+      id,
+      title,
+      deadline,
+      description,
+      eligibility,
+    } = this.props.latestScholarship;
+    return (
+      <div>
+        <h4>
+          <Link to={`${url}/scholarships/${id}`}>{title}</Link>
+        </h4>
+        <h5>{deadline}</h5>
+        <h5>{eligibility}</h5>
+        <p>{description}</p>
+      </div>
+    );
   }
 
   renderEvent() {
@@ -45,6 +68,7 @@ export class ActivitiesRoot extends Component {
               </Link>
             </h1>
             <p>Latest Scholarship:</p>
+            { this.props.latestScholarship ? this.renderScholarship() : <p>There are no scholarships at the moment</p> }
           </div>
         </div>
         <div className="row">
@@ -63,4 +87,7 @@ export class ActivitiesRoot extends Component {
   }
 }
 
-export default connect(mapStateToProps, { fetchLatestEvent })(ActivitiesRoot);
+export default connect(mapStateToProps, {
+  fetchLatestEvent,
+  fetchLatestScholarship,
+})(ActivitiesRoot);

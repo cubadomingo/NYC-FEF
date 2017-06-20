@@ -6,6 +6,7 @@ import {
   FETCH_EVENTS,
   FETCH_EVENT,
   FETCH_LAST_EVENT,
+  FETCH_LAST_SCHOLARSHIP,
   EVENT_SUBMIT_SUCCESS,
   EVENT_DELETE_SUCCESS,
   EVENT_EDIT_SUCCESS,
@@ -67,6 +68,18 @@ export function fetchLatestEvent() {
     .then((res) => {
       const event = res.data.events[res.data.events.length - 1];
       dispatch({ type: FETCH_LAST_EVENT, payload: event });
+    });
+  };
+}
+
+export function fetchLatestScholarship() {
+  return function (dispatch) {
+    axios.get(`${ROOT_URL}/scholarships`)
+    .then((res) => {
+      const scholarship = res.data.scholarships[
+        res.data.scholarships.length - 1
+      ];
+      dispatch({ type: FETCH_LAST_SCHOLARSHIP, payload: scholarship });
     });
   };
 }
