@@ -5,6 +5,7 @@ import {
   AUTH_ERROR,
   FETCH_EVENTS,
   FETCH_EVENT,
+  FETCH_SCHOLARSHIPS,
   FETCH_LAST_EVENT,
   FETCH_LAST_SCHOLARSHIP,
   EVENT_SUBMIT_SUCCESS,
@@ -89,6 +90,15 @@ export function fetchEvents() {
     axios.get(`${ROOT_URL}/events`)
     .then((res) => {
       dispatch({ type: FETCH_EVENTS, payload: res.data.events });
+    });
+  };
+}
+
+export function fetchScholarships() {
+  return function (dispatch) {
+    axios.get(`${ROOT_URL}/scholarships`)
+    .then((res) => {
+      dispatch({ type: FETCH_SCHOLARSHIPS, payload: res.data.scholarships });
     });
   };
 }

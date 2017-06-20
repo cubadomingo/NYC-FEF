@@ -5,12 +5,30 @@ import configureMockStore from 'redux-mock-store';
 import reducer, {
   mapStateToProps,
 } from 'reducers/scholarships';
-import { fetchLatestScholarship } from 'actions/index';
+import {
+  fetchLatestScholarship,
+  fetchScholarships,
+} from 'actions/index';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('Scholarships Reducer', function () {
+  const scholarships = [{
+    id: 1,
+    title: 'sample 1',
+    description: 'lorem ipsum',
+    deadline: 'time',
+    eligibility: 'foo',
+  },
+  {
+    id: 2,
+    title: 'sample 2',
+    description: 'lorem ipsum',
+    deadline: 'time',
+    eligibility: 'foo',
+  }];
+
   beforeEach(function () {
     moxios.install();
   });
@@ -21,18 +39,6 @@ describe('Scholarships Reducer', function () {
 
   it('returns latest scholarship', function (done) {
     const store = mockStore({});
-    const scholarships = [{
-      title: 'sample 1',
-      description: 'lorem ipsum',
-      deadline: 'time',
-      eligibility: 'foo',
-    },
-    {
-      title: 'sample 2',
-      description: 'lorem ipsum',
-      deadline: 'time',
-      eligibility: 'foo',
-    }];
 
     store.dispatch(fetchLatestScholarship());
 
@@ -54,20 +60,41 @@ describe('Scholarships Reducer', function () {
     });
   });
 
+  it('returns list of all scholarships', function (done) {
+    const store = mockStore({});
+
+    store.dispatch(fetchScholarships());
+
+    moxios.wait(function () {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: { scholarships },
+      })
+      .then(() => {
+        expect(reducer({}, store.getActions()[0])).to.deep.equal({
+          data: {
+            1: scholarships[0],
+            2: scholarships[1],
+          },
+        });
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+    });
+  });
+
   it('mapsStateToProps', function () {
     const state = {
-      scholarships: {
-        latestScholarship: {
-          title: 'sample',
-          description: 'description',
-          deadline: 'time',
-          eligibility: 'foo',
-        },
-      },
+      scholarships: {},
+      data: {},
     };
 
     expect(mapStateToProps(state)).to.deep.equal({
-      latestScholarship: state.scholarships.latestScholarship,
+      latestScholarship: undefined,
+      scholarships: undefined,
     });
   });
 });

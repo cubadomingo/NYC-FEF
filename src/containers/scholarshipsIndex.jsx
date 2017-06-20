@@ -1,24 +1,54 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ScholarshipsList from 'components/scholarshipsList';
+import { fetchScholarships } from 'actions/index';
+import { mapStateToProps } from 'reducers/scholarships';
 
-export const ScholarshipsIndex = props => (
-  <div>
-    <h1>Scholarships</h1>
-    { props.authenticated ? (
-      <Link to={`${props.match.url}/new`}>Create a New Scholarship</Link>
-    ) : (
-      null
-    )}
-    <ScholarshipsList />
-  </div>
-);
-
-const mapStateToProps = state => (
-  {
-    authenticated: state.authenticate.authenticated,
+export class ScholarshipsIndex extends Component {
+  componentDidMount() {
+    this.fetchScholarships();
+    this.scholarshipsList = this.eventsList.bind(this);
   }
-);
 
-export default connect(mapStateToProps)(ScholarshipsIndex);
+  scholarshipsList() {
+    return Object.values(this.props.scholarships).map(scholarship => (
+      <div key={scholarship.id}>
+        <h4><Link
+          to={`${this.props.match.url}/${scholarship.id}`}
+        >{scholarship.title}
+        </Link></h4>
+        <h5>{scholarship.deadline}</h5>
+        <h5>{scholarship.eligibility}</h5>
+        <p>{scholarship.description}</p>
+        {this.props.authenticated ? (
+          <div>
+            <a
+              className="btn btn-secondary"
+              onClick={() => { this.props.deleteScholarship(scholarship.id); }}
+            >Delete</a>
+            <Link
+              className="btn btn-secondary"
+              to={`${this.props.match.url}/edit/${scholarship.id}`}
+            >Edit</Link>
+          </div>
+        ) : null}
+      </div>
+    ));
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Scholarships</h1>
+        { this.props.authenticated ? (
+          <Link to={`${this.props.match.url}/new`}>Create a New Scholarship</Link>
+        ) : (
+          null
+        )}
+        { this.props.scholarships ? this.scholarshipsList() : <p>There are no scholarships at the moment</p> }
+      </div>
+    );
+  }
+}
+
+export default connect(mapStateToProps, { fetchScholarships })(ScholarshipsIndex);
