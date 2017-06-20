@@ -8,6 +8,7 @@ import reducer, {
 import {
   fetchLatestScholarship,
   fetchScholarships,
+  fetchScholarship,
 } from 'actions/index';
 
 const middlewares = [thunk];
@@ -86,15 +87,56 @@ describe('Scholarships Reducer', function () {
     });
   });
 
+  it('returns a single scholarship', function (done) {
+    const scholarship = [{
+      id: 1,
+      title: 'sample 1',
+      description: 'lorem ipsum',
+      deadline: 'time',
+      eligibility: 'foo',
+    }];
+
+    const store = mockStore({});
+
+    store.dispatch(fetchScholarship());
+
+    moxios.wait(function () {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: { scholarship },
+      })
+      .then(() => {
+        expect(reducer({}, store.getActions()[0])).to.deep.equal({
+          data: {
+            1: scholarships[0],
+          },
+        });
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+    });
+  });
+
   it('mapsStateToProps', function () {
     const state = {
-      scholarships: {},
-      data: {},
+      authenticate: {
+        authenticated: true,
+      },
+      scholarships: {
+        scholarship: {},
+        data: {},
+        latestScholarship: {},
+      },
     };
 
     expect(mapStateToProps(state)).to.deep.equal({
-      latestScholarship: undefined,
-      scholarships: undefined,
+      authenticated: true,
+      scholarship: {},
+      latestScholarship: {},
+      scholarships: {},
     });
   });
 });
