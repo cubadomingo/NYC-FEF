@@ -10,6 +10,7 @@ import {
   FETCH_LAST_EVENT,
   FETCH_LAST_SCHOLARSHIP,
   EVENT_SUBMIT_SUCCESS,
+  SCHOLARSHIP_SUBMIT_SUCCESS,
   EVENT_DELETE_SUCCESS,
   EVENT_EDIT_SUCCESS,
 } from 'actions/types';
@@ -69,6 +70,20 @@ export function submitNewEvent(data) {
     })
     .then((res) => {
       dispatch({ type: EVENT_SUBMIT_SUCCESS, payload: res.data.event[0].id });
+    });
+  };
+}
+
+export function submitNewScholarship(data) {
+  return function (dispatch) {
+    axios.post(`${ROOT_URL}/scholarships`, data, {
+      headers: { 'x-access-token': localStorage.getItem('token') },
+    })
+    .then((res) => {
+      dispatch({
+        type: SCHOLARSHIP_SUBMIT_SUCCESS,
+        payload: res.data.scholarship[0].id,
+      });
     });
   };
 }

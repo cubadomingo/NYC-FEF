@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import { ScholarshipsShow } from 'containers/scholarshipsShow';
 
-describe('ScholarshipsShow Container', () => {
+describe('ScholarshipsShow Container', function () {
   const scholarship = {
     id: 1,
     title: 'Sample Scholarship',

@@ -3,6 +3,7 @@ import {
   FETCH_SCHOLARSHIPS,
   FETCH_LAST_SCHOLARSHIP,
   FETCH_SCHOLARSHIP,
+  SCHOLARSHIP_SUBMIT_SUCCESS,
 } from 'actions/types';
 
 const initialState = {
@@ -18,6 +19,8 @@ export default function (state = initialState, action) {
       return { data: _.mapKeys(action.payload, 'id') };
     case FETCH_LAST_SCHOLARSHIP:
       return { latestScholarship: action.payload };
+    case SCHOLARSHIP_SUBMIT_SUCCESS:
+      return { submitSuccess: true, newId: action.payload };
     default:
       return state;
   }
@@ -28,4 +31,6 @@ export const mapStateToProps = ({ scholarships, authenticate }) => ({
   scholarship: scholarships.scholarship,
   scholarships: scholarships.data,
   latestScholarship: scholarships.latestScholarship,
+  newId: scholarships.newId,
+  submitSuccess: scholarships.submitSuccess,
 });

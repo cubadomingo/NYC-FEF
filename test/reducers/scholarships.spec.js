@@ -9,12 +9,21 @@ import {
   fetchLatestScholarship,
   fetchScholarships,
   fetchScholarship,
+  submitNewScholarship,
 } from 'actions/index';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('Scholarships Reducer', function () {
+  const scholarship = [{
+    id: 1,
+    title: 'sample 1',
+    description: 'lorem ipsum',
+    deadline: 'time',
+    eligibility: 'foo',
+  }];
+
   const scholarships = [{
     id: 1,
     title: 'sample 1',
@@ -88,14 +97,6 @@ describe('Scholarships Reducer', function () {
   });
 
   it('returns a single scholarship', function (done) {
-    const scholarship = [{
-      id: 1,
-      title: 'sample 1',
-      description: 'lorem ipsum',
-      deadline: 'time',
-      eligibility: 'foo',
-    }];
-
     const store = mockStore({});
 
     store.dispatch(fetchScholarship());
@@ -120,12 +121,38 @@ describe('Scholarships Reducer', function () {
     });
   });
 
+  it('submits a new scholarship', function (done) {
+    const store = mockStore({});
+
+    store.dispatch(submitNewScholarship());
+
+    moxios.wait(function () {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: { scholarship },
+      })
+      .then(() => {
+        expect(reducer({}, store.getActions()[0])).to.deep.equal({
+          newId: 1,
+          submitSuccess: true,
+        });
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+    });
+  });
+
   it('mapsStateToProps', function () {
     const state = {
       authenticate: {
         authenticated: true,
       },
       scholarships: {
+        newId: 1,
+        submitSuccess: true,
         scholarship: {},
         data: {},
         latestScholarship: {},
@@ -137,6 +164,8 @@ describe('Scholarships Reducer', function () {
       scholarship: {},
       latestScholarship: {},
       scholarships: {},
+      submitSuccess: true,
+      newId: 1,
     });
   });
 });
