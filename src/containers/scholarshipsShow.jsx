@@ -17,6 +17,9 @@ export class ScholarshipsShow extends Component {
     const { scholarship } = this.props;
     return (
       <div>
+        { this.props.editSuccess ? (
+          <div className="alert alert-success">edited successfully!</div>
+        ) : null }
         <h1>{scholarship.title}</h1>
         <h2>{scholarship.deadline}</h2>
         <h3>Eligibility Requirements</h3>

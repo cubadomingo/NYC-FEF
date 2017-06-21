@@ -3,12 +3,12 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { Field } from 'redux-form';
-import { ScholarshipsEdit } from 'components/scholarshipsEdit';
+import { ScholarshipsEdit } from 'containers/scholarshipsEdit';
 import { scholarshipsField } from 'utils/formFields';
 
-describe('ScholarshipsEdit Component', () => {
-  it('renders 4 fields and a submit button', () => {
-    const wrapper = shallow(<ScholarshipsEdit />);
+describe('ScholarshipsEdit Component', function () {
+  it('renders 4 fields and a submit button', function () {
+    const wrapper = shallow(<ScholarshipsEdit handleSubmit={fn => (fn)} />);
 
     expect(wrapper.containsAllMatchingElements([
       <Field name="title" component={scholarshipsField} />,
@@ -24,14 +24,17 @@ describe('ScholarshipsEdit Component', () => {
     )).to.equal(true);
   });
 
-  it('calls callback on form submit', () => {
-    const submitEditedScholarship = sinon.spy();
+  it('calls callback on form submit', function () {
+    const editScholarship = sinon.spy();
     const wrapper = shallow(
-      <ScholarshipsEdit submitEditedScholarship={submitEditedScholarship} />,
+      <ScholarshipsEdit
+        handleSubmit={fn => (fn)}
+        editScholarship={editScholarship}
+      />,
     );
 
     wrapper.find('form').simulate('submit');
 
-    expect(submitEditedScholarship.calledOnce).to.equal(true);
+    expect(editScholarship.calledOnce).to.equal(true);
   });
 });

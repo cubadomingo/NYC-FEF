@@ -68,4 +68,29 @@ describe('ScholarshipsShow Container', function () {
       to: '/activities/scholarships/edit/1',
     }).exists()).to.equal(false);
   });
+
+  it('renders message on succesful edit', function () {
+    const wrapper = shallow(
+      <ScholarshipsShow
+        editSuccess
+        scholarship={scholarship}
+      />,
+    );
+
+    expect(wrapper.containsMatchingElement(
+      <div>edited successfully!</div>,
+    )).to.equal(true);
+  });
+
+  it('does not render message if editSuccess false', function () {
+    const wrapper = shallow(
+      <ScholarshipsShow
+        scholarship={scholarship}
+      />,
+    );
+
+    expect(wrapper.containsMatchingElement(
+      <div>edited successfully!</div>,
+    )).to.equal(false);
+  });
 });

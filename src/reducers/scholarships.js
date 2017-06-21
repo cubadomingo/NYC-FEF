@@ -4,6 +4,7 @@ import {
   FETCH_LAST_SCHOLARSHIP,
   FETCH_SCHOLARSHIP,
   SCHOLARSHIP_SUBMIT_SUCCESS,
+  SCHOLARSHIP_EDIT_SUCCESS,
 } from 'actions/types';
 
 const initialState = {
@@ -21,16 +22,21 @@ export default function (state = initialState, action) {
       return { latestScholarship: action.payload };
     case SCHOLARSHIP_SUBMIT_SUCCESS:
       return { submitSuccess: true, newId: action.payload };
+    case SCHOLARSHIP_EDIT_SUCCESS:
+      return { editSuccess: true, editId: action.payload };
     default:
       return state;
   }
 }
 
-export const mapStateToProps = ({ scholarships, authenticate }) => ({
+export const mapStateToProps = ({ scholarships, authenticate }, ownProps) => ({
   authenticated: authenticate.authenticated,
   scholarship: scholarships.scholarship,
   scholarships: scholarships.data,
   latestScholarship: scholarships.latestScholarship,
   newId: scholarships.newId,
+  editId: scholarships.editId,
+  editSuccess: scholarships.submitSuccess,
+  initialValues: scholarships.data[ownProps.match.params.id],
   submitSuccess: scholarships.submitSuccess,
 });

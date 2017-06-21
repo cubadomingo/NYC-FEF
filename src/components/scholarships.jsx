@@ -4,7 +4,7 @@ import ActivitiesNavbar from 'components/activitiesNavbar';
 import ScholarshipsIndex from 'containers/scholarshipsIndex';
 import ScholarshipsNew from 'components/scholarshipsNew';
 import ScholarshipsShow from 'containers/scholarshipsShow';
-import ScholarshipsEdit from 'components/scholarshipsEdit';
+import ScholarshipsEdit from 'containers/scholarshipsEdit';
 
 export default ({ match }) => (
   <div className="text-center">

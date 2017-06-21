@@ -11,8 +11,10 @@ import {
   FETCH_LAST_SCHOLARSHIP,
   EVENT_SUBMIT_SUCCESS,
   SCHOLARSHIP_SUBMIT_SUCCESS,
+  SCHOLARSHIP_EDIT_SUCCESS,
   EVENT_DELETE_SUCCESS,
   EVENT_EDIT_SUCCESS,
+  FETCH_SCHOLARSHIP_ERROR,
 } from 'actions/types';
 
 const ROOT_URL = 'http://localhost:3000/api/v1';
@@ -31,6 +33,8 @@ export function fetchScholarship(id) {
     axios.get(`${ROOT_URL}/scholarships/${id}`)
     .then((res) => {
       dispatch({ type: FETCH_SCHOLARSHIP, payload: res.data.scholarship[0] });
+    })
+    .catch(() => {
     });
   };
 }
@@ -58,6 +62,25 @@ export function editEvent(data) {
     })
     .then((res) => {
       dispatch({ type: EVENT_EDIT_SUCCESS, payload: res.data.event[0].id });
+    });
+  };
+}
+
+export function editScholarship(data) {
+  return function (dispatch) {
+    const id = data.id;
+    delete data.id;
+    delete data.created_at;
+    delete data.updated_at;
+
+    axios.put(`${ROOT_URL}/scholarships/${id}`, data, {
+      headers: { 'x-access-token': localStorage.getItem('token') },
+    })
+    .then((res) => {
+      dispatch({
+        type: SCHOLARSHIP_EDIT_SUCCESS,
+        payload: res.data.scholarship[0].id,
+      });
     });
   };
 }

@@ -10,6 +10,7 @@ import {
   fetchScholarships,
   fetchScholarship,
   submitNewScholarship,
+  editScholarship,
 } from 'actions/index';
 
 const middlewares = [thunk];
@@ -22,6 +23,16 @@ describe('Scholarships Reducer', function () {
     description: 'lorem ipsum',
     deadline: 'time',
     eligibility: 'foo',
+  }];
+
+  const data = [{
+    id: 1,
+    title: 'sample edit',
+    description: 'lorem ipsum',
+    deadline: 'time',
+    eligibility: 'foo',
+    created_at: 'made',
+    updated_at: 'once',
   }];
 
   const scholarships = [{
@@ -124,7 +135,7 @@ describe('Scholarships Reducer', function () {
   it('submits a new scholarship', function (done) {
     const store = mockStore({});
 
-    store.dispatch(submitNewScholarship());
+    store.dispatch(submitNewScholarship(data));
 
     moxios.wait(function () {
       const request = moxios.requests.mostRecent();
@@ -145,26 +156,69 @@ describe('Scholarships Reducer', function () {
     });
   });
 
+  it('edits a single scholarship', function (done) {
+    const store = mockStore({});
+
+    store.dispatch(editScholarship(data));
+
+    moxios.wait(function () {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: { scholarship },
+      })
+      .then(() => {
+        expect(reducer({}, store.getActions()[0])).to.deep.equal({
+          editId: 1,
+          editSuccess: true,
+        });
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+    });
+  });
+
   it('mapsStateToProps', function () {
     const state = {
       authenticate: {
         authenticated: true,
       },
       scholarships: {
+        editId: 1,
         newId: 1,
+        editSuccess: true,
         submitSuccess: true,
         scholarship: {},
-        data: {},
+        data: {
+          1: {},
+          2: {},
+        },
         latestScholarship: {},
       },
     };
 
-    expect(mapStateToProps(state)).to.deep.equal({
+    const ownProps = {
+      match: {
+        params: {
+          id: 1,
+        },
+      },
+    };
+
+    expect(mapStateToProps(state, ownProps)).to.deep.equal({
       authenticated: true,
-      scholarship: {},
+      scholarships: {
+        1: {},
+        2: {},
+      },
       latestScholarship: {},
-      scholarships: {},
+      scholarship: {},
       submitSuccess: true,
+      editSuccess: true,
+      initialValues: {},
+      editId: 1,
       newId: 1,
     });
   });
