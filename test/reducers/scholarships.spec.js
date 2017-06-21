@@ -11,6 +11,7 @@ import {
   fetchScholarship,
   submitNewScholarship,
   editScholarship,
+  deleteScholarship,
 } from 'actions/index';
 
 const middlewares = [thunk];
@@ -180,6 +181,36 @@ describe('Scholarships Reducer', function () {
     });
   });
 
+  it('deletes a scholarship', function (done) {
+    const store = mockStore({});
+
+    const state = {
+      data: {
+        1: {},
+      },
+    };
+
+    store.dispatch(deleteScholarship(1));
+
+    moxios.wait(function () {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: { scholarship },
+      })
+      .then(() => {
+        expect(reducer(state, store.getActions()[0])).to.deep.equal({
+          data: {},
+          deleteSuccess: true,
+        });
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+    });
+  });
+
   it('mapsStateToProps', function () {
     const state = {
       authenticate: {
@@ -189,6 +220,7 @@ describe('Scholarships Reducer', function () {
         editId: 1,
         newId: 1,
         editSuccess: true,
+        deleteSuccess: true,
         submitSuccess: true,
         scholarship: {},
         data: {
@@ -215,6 +247,7 @@ describe('Scholarships Reducer', function () {
       },
       latestScholarship: {},
       scholarship: {},
+      deleteSuccess: true,
       submitSuccess: true,
       editSuccess: true,
       initialValues: {},

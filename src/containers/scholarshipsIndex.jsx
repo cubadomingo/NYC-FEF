@@ -39,6 +39,9 @@ export class ScholarshipsIndex extends Component {
   render() {
     return (
       <div>
+        { this.props.deleteSuccess ? (
+          <div className="alert alert-success">scholarship deleted</div>
+        ) : null }
         <h1>Scholarships</h1>
         { this.props.authenticated ? (
           <Link to={`${this.props.match.url}/new`}>Create a New Scholarship</Link>

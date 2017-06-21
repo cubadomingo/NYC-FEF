@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { mapStateToProps } from 'reducers/scholarships';
 import {
   fetchScholarship,
@@ -15,6 +15,11 @@ export class ScholarshipsShow extends Component {
 
   render() {
     const { scholarship } = this.props;
+
+    if (this.props.deleteSuccess) {
+      return <Redirect to={'/activities/scholarships'} />;
+    }
+
     return (
       <div>
         { this.props.editSuccess ? (

@@ -122,4 +122,20 @@ describe('ScholarshipsIndex Container', function () {
 
     expect(wrapper.find('a')).to.have.length(0);
   });
+
+  it('renders message if delete success', function () {
+    const wrapper = shallow(<ScholarshipsIndex deleteSuccess />);
+
+    expect(wrapper.containsMatchingElement(
+      <div>scholarship deleted</div>,
+    )).to.equal(true);
+  });
+
+  it('does not render message if no delete success', function () {
+    const wrapper = shallow(<ScholarshipsIndex />);
+
+    expect(wrapper.containsMatchingElement(
+      <div>scholarship deleted</div>,
+    )).to.equal(false);
+  });
 });

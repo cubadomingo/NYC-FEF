@@ -93,4 +93,20 @@ describe('ScholarshipsShow Container', function () {
       <div>edited successfully!</div>,
     )).to.equal(false);
   });
+
+  it('redirects on succesful delete', function () {
+    const wrapper = shallow(
+      <ScholarshipsShow
+        deleteSuccess
+      />,
+    );
+
+    expect(wrapper.find('Redirect').exists()).to.equal(true);
+  });
+
+  it('does not redirects if no succesful delete', function () {
+    const wrapper = shallow(<ScholarshipsShow scholarship={scholarship} />);
+
+    expect(wrapper.find('Redirect').exists()).to.equal(false);
+  });
 });

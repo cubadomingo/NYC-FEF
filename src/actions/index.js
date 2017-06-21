@@ -14,7 +14,7 @@ import {
   SCHOLARSHIP_EDIT_SUCCESS,
   EVENT_DELETE_SUCCESS,
   EVENT_EDIT_SUCCESS,
-  FETCH_SCHOLARSHIP_ERROR,
+  SCHOLARSHIP_DELETE_SUCCESS,
 } from 'actions/types';
 
 const ROOT_URL = 'http://localhost:3000/api/v1';
@@ -38,6 +38,18 @@ export function fetchScholarship(id) {
     });
   };
 }
+
+export function deleteScholarship(id) {
+  return function (dispatch) {
+    axios.delete(`${ROOT_URL}/scholarships/${id}`, {
+      headers: { 'x-access-token': localStorage.getItem('token') },
+    })
+    .then(() => {
+      dispatch({ type: SCHOLARSHIP_DELETE_SUCCESS, payload: id });
+    });
+  };
+}
+
 
 export function deleteEvent(id) {
   return function (dispatch) {

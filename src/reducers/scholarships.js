@@ -5,6 +5,7 @@ import {
   FETCH_SCHOLARSHIP,
   SCHOLARSHIP_SUBMIT_SUCCESS,
   SCHOLARSHIP_EDIT_SUCCESS,
+  SCHOLARSHIP_DELETE_SUCCESS,
 } from 'actions/types';
 
 const initialState = {
@@ -24,6 +25,13 @@ export default function (state = initialState, action) {
       return { submitSuccess: true, newId: action.payload };
     case SCHOLARSHIP_EDIT_SUCCESS:
       return { editSuccess: true, editId: action.payload };
+    case SCHOLARSHIP_DELETE_SUCCESS: {
+      return {
+        ...state,
+        data: _.omit(state.data, action.payload),
+        deleteSuccess: true,
+      };
+    }
     default:
       return state;
   }
@@ -37,6 +45,7 @@ export const mapStateToProps = ({ scholarships, authenticate }, ownProps) => ({
   newId: scholarships.newId,
   editId: scholarships.editId,
   editSuccess: scholarships.submitSuccess,
+  deleteSuccess: scholarships.deleteSuccess,
   initialValues: scholarships.data[ownProps.match.params.id],
   submitSuccess: scholarships.submitSuccess,
 });
