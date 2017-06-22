@@ -48,7 +48,7 @@ describe('EventsNew Component', () => {
     const wrapper = shallow(
       <EventsNew
         submitSuccess
-        newPostId={1}
+        newId={1}
       />,
     );
 

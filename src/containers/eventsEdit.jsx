@@ -33,7 +33,7 @@ export class EventsEdit extends Component {
     const { handleSubmit } = this.props;
 
     if (this.props.editSuccess) {
-      return <Redirect to={`/activities/events/${this.props.editPostId}`} />;
+      return <Redirect to={`/activities/events/${this.props.editId}`} />;
     }
 
     return (

@@ -23,7 +23,7 @@ export default function (state = initialState, action) {
     case FETCH_LAST_EVENT:
       return { ...state, latestEvent: action.payload };
     case EVENT_SUBMIT_SUCCESS:
-      return { ...state, submitSuccess: true, newPostId: action.payload };
+      return { ...state, submitSuccess: true, newId: action.payload };
     case EVENT_DELETE_SUCCESS: {
       return {
         ...state,
@@ -32,7 +32,7 @@ export default function (state = initialState, action) {
       };
     }
     case EVENT_EDIT_SUCCESS:
-      return { ...state, editSuccess: true, editPostId: action.payload };
+      return { ...state, editSuccess: true, editId: action.payload };
     default:
       return state;
   }
@@ -47,6 +47,6 @@ export const mapStateToProps = ({ events, authenticate }, ownProps) => ({
   submitSuccess: events.submitSuccess,
   initialValues: events.data[ownProps.match.params.id],
   editSuccess: events.editSuccess,
-  editPostId: events.editPostId,
-  newPostId: events.newPostId,
+  editId: events.editId,
+  newId: events.newId,
 });

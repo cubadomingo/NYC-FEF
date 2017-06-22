@@ -10,18 +10,36 @@ import {
   fetchEvent,
   fetchLatestEvent,
   deleteEvent,
+  editEvent,
 } from 'actions/index';
-import {
-  FETCH_EVENTS,
-  FETCH_EVENT,
-  FETCH_LAST_EVENT,
-  EVENT_DELETE_SUCCESS,
-} from 'actions/types';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('Events Reducer', function () {
+  const event = [{
+    id: 1,
+    title: 'sample 1',
+    description: 'lorem',
+    datetime: 'sometime',
+    location: 'somewhere',
+  }];
+
+  const events = [{
+    id: 1,
+    title: 'sample 1',
+    description: 'lorem',
+    datetime: 'sometime',
+    location: 'somewhere',
+  },
+  {
+    id: 2,
+    title: 'sample 2',
+    description: 'lorem',
+    datetime: 'sometime',
+    location: 'somewhere',
+  }];
+
   beforeEach(function () {
     moxios.install();
   });
@@ -30,15 +48,7 @@ describe('Events Reducer', function () {
     moxios.uninstall();
   });
 
-  it('dispatches EVENT_DELETE_SUCCESS', function (done) {
-    const event = [{
-      id: 1,
-      title: 'sample 1',
-      description: 'lorem',
-      datetime: 'sometime',
-      location: 'somewhere',
-    }];
-
+  it('deletes an event', function (done) {
     const state = {
       data: {
         1: event[0],
@@ -46,8 +56,6 @@ describe('Events Reducer', function () {
     };
 
     const store = mockStore({});
-
-    const expectedActions = [{ type: EVENT_DELETE_SUCCESS, payload: event[0].id }];
 
     store.dispatch(deleteEvent(1));
 
@@ -62,8 +70,6 @@ describe('Events Reducer', function () {
           data: {},
           deleteSuccess: true,
         });
-
-        expect(store.getActions()).to.deep.equal(expectedActions);
         done();
       })
       .catch((err) => {
@@ -72,22 +78,8 @@ describe('Events Reducer', function () {
     });
   });
 
-  it('dispatches FETCH_EVENTS', function (done) {
+  it('fetches all events', function (done) {
     const store = mockStore({});
-    const events = [{
-      title: 'sample 1',
-      description: 'lorem',
-      datetime: 'sometime',
-      location: 'somewhere',
-    },
-    {
-      title: 'sample 2',
-      description: 'lorem',
-      datetime: 'sometime',
-      location: 'somewhere',
-    }];
-
-    const expectedActions = [{ type: FETCH_EVENTS, payload: events }];
 
     store.dispatch(fetchEvents());
 
@@ -98,7 +90,12 @@ describe('Events Reducer', function () {
         response: { events },
       })
       .then(() => {
-        expect(store.getActions()).to.deep.equal(expectedActions);
+        expect(reducer({}, store.getActions()[0])).to.deep.equal({
+          data: {
+            1: events[0],
+            2: events[1],
+          },
+        });
         done();
       })
       .catch((err) => {
@@ -107,18 +104,8 @@ describe('Events Reducer', function () {
     });
   });
 
-
-  it('dispatches FETCH_EVENT', function (done) {
+  it('fetches an event', function (done) {
     const store = mockStore({});
-    const event = [{
-      id: 1,
-      title: 'sample 1',
-      description: 'lorem',
-      datetime: 'sometime',
-      location: 'somewhere',
-    }];
-
-    const expectedActions = [{ type: FETCH_EVENT, payload: event[0] }];
 
     store.dispatch(fetchEvent());
 
@@ -129,7 +116,11 @@ describe('Events Reducer', function () {
         response: { event },
       })
       .then(() => {
-        expect(store.getActions()).to.deep.equal(expectedActions);
+        expect(reducer({}, store.getActions()[0])).to.deep.equal({
+          data: {
+            1: event[0],
+          },
+        });
         done();
       })
       .catch((err) => {
@@ -138,22 +129,8 @@ describe('Events Reducer', function () {
     });
   });
 
-  it('dispatches FETCH_LAST_EVENT', function (done) {
+  it('fetches the last event', function (done) {
     const store = mockStore({});
-    const events = [{
-      title: 'sample 1',
-      description: 'lorem',
-      datetime: 'sometime',
-      location: 'somewhere',
-    },
-    {
-      title: 'sample 2',
-      description: 'lorem',
-      datetime: 'sometime',
-      location: 'somewhere',
-    }];
-
-    const expectedActions = [{ type: FETCH_LAST_EVENT, payload: events[1] }];
 
     store.dispatch(fetchLatestEvent());
 
@@ -164,7 +141,9 @@ describe('Events Reducer', function () {
         response: { events },
       })
       .then(() => {
-        expect(store.getActions()).to.deep.equal(expectedActions);
+        expect(reducer({}, store.getActions()[0])).to.deep.equal({
+          latestEvent: events[1],
+        });
         done();
       })
       .catch((err) => {
@@ -173,8 +152,38 @@ describe('Events Reducer', function () {
     });
   });
 
-  it('should initialize state', function () {
-    expect(reducer(undefined, {})).to.deep.equal({ data: {}, latestEvent: [], newPost: [] });
+  it('edits an event', function (done) {
+    const store = mockStore({});
+
+    const data = {
+      id: 1,
+      title: 'lorem ipsum',
+      description: 'lorem',
+      location: 'blah',
+      datetime: 'some time',
+      created_at: 'dfs',
+      updated_at: 'dasa',
+    };
+
+    store.dispatch(editEvent(data));
+
+    moxios.wait(function () {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: { event },
+      })
+      .then(() => {
+        expect(reducer({}, store.getActions()[0])).to.deep.equal({
+          editId: 1,
+          editSuccess: true,
+        });
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+    });
   });
 
   it('should mapStateToProps', function () {
@@ -190,26 +199,36 @@ describe('Events Reducer', function () {
       authenticate: {
         authenticated: true,
       },
+      event: event[0],
       events: {
-        data: [],
-        submitSuccess: undefined,
-        deleteSuccess: undefined,
-        latestEvent: [],
-        newPostId: undefined,
+        data: {
+          1: events[0],
+          2: events[1],
+        },
+        submitSuccess: true,
+        deleteSuccess: true,
+        editSuccess: true,
+        initialValues: event[0],
+        latestEvent: event[0],
+        newId: 1,
+        editId: 1,
       },
     };
 
     expect(mapStateToProps(state, ownProps)).to.deep.equal({
-      events: [],
-      event: undefined,
+      events: {
+        1: events[0],
+        2: events[1],
+      },
+      event: event[0],
       authenticated: true,
-      newPostId: undefined,
-      editPostId: undefined,
-      editSuccess: undefined,
-      submitSuccess: undefined,
-      initialValues: undefined,
-      deleteSuccess: undefined,
-      latestEvent: [],
+      newId: 1,
+      editId: 1,
+      editSuccess: true,
+      submitSuccess: true,
+      initialValues: event[0],
+      deleteSuccess: true,
+      latestEvent: event[0],
     });
   });
 });

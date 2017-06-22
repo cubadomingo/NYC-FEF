@@ -27,7 +27,7 @@ export const EventsNew = (props) => {
   const { handleSubmit } = props;
 
   if (props.submitSuccess) {
-    return <Redirect to={`/activities/events/${props.newPostId}`} />;
+    return <Redirect to={`/activities/events/${props.newId}`} />;
   }
 
   return (
