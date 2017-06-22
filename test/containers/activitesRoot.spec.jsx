@@ -63,6 +63,10 @@ describe('ActivitiesRoot', function () {
       <p>There are no events at the moment</p>,
     )).to.equal(false);
 
+    expect(wrapper.find({
+      to: '/activities/events/1',
+    }).exists()).to.equal(true);
+
     expect(wrapper.contains([
       <h5>{latestEvent.location}</h5>,
       <h5>{latestEvent.datetime}</h5>,
