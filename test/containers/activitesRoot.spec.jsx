@@ -8,15 +8,12 @@ import { ActivitiesRoot } from 'containers/ActivitiesRoot';
 describe('ActivitiesRoot', function () {
   it('renders Links', function () {
     const wrapper = shallow(<ActivitiesRoot match={{ url: '/activities' }} />);
-    expect(wrapper.find('Link')).to.have.length(3);
+    expect(wrapper.find('Link')).to.have.length(2);
     expect(wrapper.find({
       to: '/activities/events',
     }).exists()).to.equal(true);
     expect(wrapper.find({
       to: '/activities/scholarships',
-    }).exists()).to.equal(true);
-    expect(wrapper.find({
-      to: '/activities/fundraisers',
     }).exists()).to.equal(true);
   });
 

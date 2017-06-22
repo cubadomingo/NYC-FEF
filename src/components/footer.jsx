@@ -59,9 +59,6 @@ const Footer = () => (
           <li>
             Scholarships
           </li>
-          <li>
-            Fundraisers
-          </li>
         </ul>
       </div>
     </div>

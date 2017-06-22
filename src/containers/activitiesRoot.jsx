@@ -71,17 +71,6 @@ export class ActivitiesRoot extends Component {
             { this.props.latestScholarship ? this.renderScholarship() : <p>There are no scholarships at the moment</p> }
           </div>
         </div>
-        <div className="row">
-          <div className="col">
-            <h1>
-              <Link
-                to={`${this.props.match.url}/fundraisers`}
-              >Fundraisers
-              </Link>
-            </h1>
-            <p>Latest Fundraiser:</p>
-          </div>
-        </div>
       </div>
     );
   }
