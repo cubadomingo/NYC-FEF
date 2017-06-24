@@ -28,7 +28,7 @@ export const ScholarshipsNew = (props) => {
 
   if (props.submitSuccess) {
     return (
-      <Redirect to={`/activities/scholarships/${props.newScholarshipId}`} />
+      <Redirect to={`/activities/scholarships/${props.newId}`} />
     );
   }
   return (
