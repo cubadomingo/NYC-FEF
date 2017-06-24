@@ -61,7 +61,7 @@ export const scholarshipsField = ({
 }) => {
   const className = `form-group row ${touched && error ? 'has-danger' : ''}`;
 
-  const inputClass = (type === 'datetime-local') ? 'col-3' : 'col-10';
+  const inputClass = (type === 'datetime-local') ? 'col-4' : 'col-10';
 
   const inputSelect = () => {
     switch (type) {
