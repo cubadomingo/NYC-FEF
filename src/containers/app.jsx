@@ -8,7 +8,6 @@ import About from 'components/about';
 import Activities from 'components/activities';
 import SignIn from 'components/signIn';
 import Navbar from 'components/navbar';
-import Subscribe from 'components/subscribe';
 import Footer from 'components/footer';
 
 const store = configureStore();
@@ -28,7 +27,6 @@ export class App extends React.Component {
           <Route path="/about" component={About} />
           <Route path="/activities" component={Activities} />
           <Route path="/signin" component={SignIn} />
-          <Subscribe />
           <Footer />
         </div>
       </BrowserRouter>

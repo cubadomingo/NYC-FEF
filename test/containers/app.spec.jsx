@@ -4,7 +4,6 @@ import { shallow } from 'enzyme';
 import { Route } from 'react-router-dom';
 import { App } from 'containers/app';
 import { Navbar } from 'components/navbar';
-import Subscribe from 'components/subscribe';
 import Footer from 'components/footer';
 
 describe('App Container', () => {
@@ -13,7 +12,6 @@ describe('App Container', () => {
 
     expect(wrapper.containsAllMatchingElements([
       <Navbar />,
-      <Subscribe />,
       <Footer />,
     ]));
   });
