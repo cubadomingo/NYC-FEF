@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchLatestEvent, fetchLatestScholarship } from 'actions';
-import { mapStateToProps } from 'reducers/events';
 
 export class ActivitiesRoot extends Component {
   componentDidMount() {
@@ -75,6 +74,13 @@ export class ActivitiesRoot extends Component {
     );
   }
 }
+
+const mapStateToProps = ({ events, scholarships }) => (
+  {
+    latestEvent: events.latestEvent,
+    latestScholarship: scholarships.latestScholarship,
+  }
+);
 
 export default connect(mapStateToProps, {
   fetchLatestEvent,
