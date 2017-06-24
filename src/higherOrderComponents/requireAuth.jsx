@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { mapStateToProps } from 'reducers/authentication';
 
 export const Authentication = (props) => {
   const ComposedComponent = props.composedComponent;
@@ -14,5 +13,9 @@ export const Authentication = (props) => {
 };
 
 export default function requireAuth(composedComponent) {
-  return connect(mapStateToProps(composedComponent))(Authentication);
+  const mapStateToProps = ({ authentication }) => ({
+    composedComponent,
+    authenticated: authentication.authenticated,
+  });
+  return connect(mapStateToProps)(Authentication);
 }
