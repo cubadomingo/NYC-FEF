@@ -16,6 +16,10 @@ export class ScholarshipsShow extends Component {
   render() {
     const { scholarship } = this.props;
 
+    if (!scholarship) {
+      return <div>Loading...</div>;
+    }
+
     if (this.props.deleteSuccess) {
       return <Redirect to={'/activities/scholarships'} />;
     }
