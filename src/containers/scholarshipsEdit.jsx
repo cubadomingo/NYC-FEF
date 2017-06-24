@@ -33,7 +33,7 @@ export class ScholarshipsEdit extends Component {
     const { handleSubmit } = this.props;
 
     if (this.props.editSuccess) {
-      return <Redirect to={`/activities/events/${this.props.editId}`} />;
+      return <Redirect to={`/activities/scholarships/${this.props.editId}`} />;
     }
 
     return (
@@ -59,14 +59,12 @@ export class ScholarshipsEdit extends Component {
             label="Eligibility"
             component={scholarshipsField}
           />
-          <div className="form-group row text-center">
-            <Field
-              type="datetime-local"
-              name="deadline"
-              label="Deadline"
-              component={scholarshipsField}
-            />
-          </div>
+          <Field
+            type="datetime-local"
+            name="deadline"
+            label="Deadline"
+            component={scholarshipsField}
+          />
           <div className="form-group">
             <button type="submit" className="btn btn-default">Submit</button>
           </div>
