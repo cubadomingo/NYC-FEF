@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchScholarships } from 'actions/index';
+import { fetchScholarships, deleteScholarship } from 'actions/index';
 import { mapStateToProps } from 'reducers/scholarships';
 
 export class ScholarshipsIndex extends Component {
   componentDidMount() {
-    this.fetchScholarships();
-    this.scholarshipsList = this.eventsList.bind(this);
+    this.props.fetchScholarships();
+    this.scholarshipsList = this.scholarshipsList.bind(this);
+  }
+
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
   }
 
   scholarshipsList() {
@@ -38,7 +42,7 @@ export class ScholarshipsIndex extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         { this.props.deleteSuccess ? (
           <div className="alert alert-success">scholarship deleted</div>
         ) : null }
@@ -54,4 +58,4 @@ export class ScholarshipsIndex extends Component {
   }
 }
 
-export default connect(mapStateToProps, { fetchScholarships })(ScholarshipsIndex);
+export default connect(mapStateToProps, { fetchScholarships, deleteScholarship })(ScholarshipsIndex);
