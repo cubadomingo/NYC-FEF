@@ -13,7 +13,7 @@ export default ({ match }) => (
       <Route exact path={`${match.url}`} component={ScholarshipsIndex} />
       <Route path={`${match.url}/new`} component={ScholarshipsNew} />
       <Route exact path={`${match.url}/:id`} component={ScholarshipsShow} />
-      <Route path={`${match.url}/:id/edit`} component={ScholarshipsEdit} />
+      <Route path={`${match.url}/edit/:id`} component={ScholarshipsEdit} />
     </Switch>
   </div>
 );
