@@ -11,6 +11,7 @@ module.exports = {
     'import/no-extraneous-dependencies': [2, { devDependencies: true }],
     'react/prop-types': 0,
     'no-console': 1,
+    'max-len': [0],
     "no-param-reassign": 0,
     'func-names': 0,
     'consistent-return': 0,
