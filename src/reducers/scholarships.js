@@ -10,7 +10,7 @@ import {
 
 const initialState = {
   data: {},
-  latestScholarship: {},
+  latestScholarship: [],
 };
 
 export default function (state = initialState, action) {
@@ -20,11 +20,11 @@ export default function (state = initialState, action) {
     case FETCH_SCHOLARSHIPS:
       return { data: _.mapKeys(action.payload, 'id') };
     case FETCH_LAST_SCHOLARSHIP:
-      return { latestScholarship: action.payload };
+      return { ...state, latestScholarship: action.payload };
     case SCHOLARSHIP_SUBMIT_SUCCESS:
-      return { submitSuccess: true, newId: action.payload };
+      return { ...state, submitSuccess: true, newId: action.payload };
     case SCHOLARSHIP_EDIT_SUCCESS:
-      return { editSuccess: true, editId: action.payload };
+      return { ...state, editSuccess: true, editId: action.payload };
     case SCHOLARSHIP_DELETE_SUCCESS: {
       return {
         ...state,
@@ -39,12 +39,12 @@ export default function (state = initialState, action) {
 
 export const mapStateToProps = ({ scholarships, authenticate }, ownProps) => ({
   authenticated: authenticate.authenticated,
-  scholarship: scholarships.scholarship,
+  scholarship: scholarships.data[ownProps.match.params.id],
   scholarships: scholarships.data,
   latestScholarship: scholarships.latestScholarship,
   newId: scholarships.newId,
   editId: scholarships.editId,
-  editSuccess: scholarships.submitSuccess,
+  editSuccess: scholarships.editSuccess,
   deleteSuccess: scholarships.deleteSuccess,
   initialValues: scholarships.data[ownProps.match.params.id],
   submitSuccess: scholarships.submitSuccess,
