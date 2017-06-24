@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 import Scholarships from 'components/scholarships';
 import ActivitiesNavbar from 'components/activitiesNavbar';
 
-describe('Events Component', () => {
+describe('Scholarships Component', () => {
   it('contains routes for new, edit, show, and index', () => {
     const wrapper = shallow(
       <Scholarships match={{ url: '/activities/scholarships' }} />,
@@ -15,7 +15,7 @@ describe('Events Component', () => {
       <Route path="/activities/scholarships" />,
       <Route path="/activities/scholarships/new" />,
       <Route path="/activities/scholarships/:id" />,
-      <Route path="/activities/scholarships/:id/edit" />,
+      <Route path="/activities/scholarships/edit/:id" />,
     ])).to.equal(true);
   });
 

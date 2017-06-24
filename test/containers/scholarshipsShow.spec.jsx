@@ -97,6 +97,7 @@ describe('ScholarshipsShow Container', function () {
   it('redirects on succesful delete', function () {
     const wrapper = shallow(
       <ScholarshipsShow
+        scholarship={scholarship}
         deleteSuccess
       />,
     );

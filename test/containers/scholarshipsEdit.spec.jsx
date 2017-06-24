@@ -14,9 +14,7 @@ describe('ScholarshipsEdit Component', function () {
       <Field name="title" component={scholarshipsField} />,
       <Field name="description" component={scholarshipsField} />,
       <Field name="eligibility" component={scholarshipsField} />,
-      <div>
-        <Field name="deadline" component={scholarshipsField} />
-      </div>,
+      <Field name="deadline" component={scholarshipsField} />,
     ])).to.equal(true);
 
     expect(wrapper.containsMatchingElement(
