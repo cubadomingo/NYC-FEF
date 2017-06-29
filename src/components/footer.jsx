@@ -6,7 +6,7 @@ import styles from 'styles/footer.scss';
 const Footer = () => (
   <footer className="container text-center" styleName="footer">
     <div className="row">
-      <div className="col-md-3" styleName="brand">
+      <div className="col-12 col-md-3" styleName="brand">
         <h4>
           Financial
         </h4>
@@ -18,26 +18,23 @@ const Footer = () => (
         </h4>
         <p>New York City, NY</p>
       </div>
-      <div className="col-md-3">
+      <div className="col-4 col-md-3">
         <h6 className="text-center">
-          <Link to="/about">
-            About Us
-          </Link>
+          <Link to="/about">About Us</Link>
         </h6>
         <ul>
           <li>
             Mission
           </li>
           <li>
-            Vision
-          </li>
-          <li>
             FAQ
           </li>
         </ul>
       </div>
-      <div className="col-md-3">
-        <h6 className="text-center">Get Involved</h6>
+      <div className="col-4 col-md-3">
+        <h6 className="text-center">
+          <Link to="/get-involved">Get Involved</Link>
+        </h6>
         <ul>
           <li>
             Donate
@@ -45,13 +42,12 @@ const Footer = () => (
           <li>
             Volunteer
           </li>
-          <li>
-            Newsletter
-          </li>
         </ul>
       </div>
-      <div className="col-md-3">
-        <h6 className="text-center">Activities</h6>
+      <div className="col-4 col-md-3">
+        <h6 className="text-center">
+          <Link to="/activities">Activities</Link>
+        </h6>
         <ul>
           <li>
             Events

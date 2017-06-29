@@ -13,7 +13,7 @@
     }
   }
 
-  padding: 30px;
+  padding: 20px;
   height: 160px;
   background-color: white;
   position: absolute;
@@ -22,6 +22,12 @@
   border-top: black solid 1px;
 }
 
-.brand {
-  border-right: 1px solid black;
+@media (min-width: 992px) {
+  .footer {
+    padding: 30px;
+  }
+  
+  .brand {
+    border-right: 1px solid black;
+  }
 }
