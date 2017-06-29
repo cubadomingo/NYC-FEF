@@ -2,8 +2,12 @@
 
 .information-row {
   font-family: 'Poppins', sans-serif;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.activity {
+  margin-top:40px;
 }
 
 .icon {
@@ -32,4 +36,11 @@
 .info-button:hover {
   border-color: black;
   color: black;
+}
+
+@media (min-width: 992px) {
+  .information-row {
+    padding-top: 10px;
+    padding-bottom: 50px;
+  }
 }

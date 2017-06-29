@@ -3,4 +3,21 @@
   background-color: #e5e5e5;
   padding-top: 30px;
   padding-bottom: 30px;
+
+  h2 {
+    font-size: 28px;
+  }
+
+  p{
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .tagline {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e5e5e5;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 }

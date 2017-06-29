@@ -2,11 +2,11 @@
 
 .background-image {
   font-family: 'Poppins', sans-serif;
-  padding-top: 450px;
+  padding-top: 270px;
   background-image: url('landing-page-background.jpg');
   background-position: center;
   background-size: cover;
-  height: 800px;
+  height: 600px;
 }
 
 .text-box {
@@ -24,25 +24,93 @@
 }
 
 .text-top {
-  font-size: 50px;
+  font-size: 35px;
+}
+
+.text-middle {
+  margin-top: 21px;
+  font-size: 35px;
 }
 
 .text-bottom {
-  margin-top: 35px;
-  font-size: 50px;
+  margin-top: 21px;
+  font-size: 35px;
 }
 
 .text-small {
   margin-top: 30px;
-  font-size: 25px;
+  font-size: 20px;
+}
+
+.text-small-bottom {
+  margin-top: 16px;
+  font-size: 20px;
 }
 
 .button-donate {
+  color: white !important;
   margin-top: 10px;
-  font-size: 25px;
-  height: 50px;
-  width: 150px;
-  border: none;
-  background-color: white;
-  opacity: 0.9;
+  font-size: 20px;
+  height: 40px;
+  width: 120px;
 }
+
+@media (min-width: 768px) {
+  .background-image {
+    padding-top: 230px;
+  }
+  
+  .text-top {
+    font-size: 40px;
+  }
+  
+  .text-middle {
+    margin-top: 27px;
+    font-size: 40px;
+  }
+  
+  .text-bottom {
+    margin-top: 27px;
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 992px) {
+  .background-image {
+    padding-top: 300px;
+    height: 800px;
+  }
+  
+  .text-top {
+    font-size: 50px;
+  }
+
+  .text-middle {
+    margin-top: 35px;
+    font-size: 50px;
+  }
+
+  
+  .text-bottom {
+    margin-top: 35px;
+    font-size: 50px;
+  }
+  
+  .text-small {
+    margin-top: 40px;
+    font-size: 30px;
+  }
+
+  .text-small-bottom {
+    margin-top: 20px;
+    font-size: 30px;
+  }
+  
+  .button-donate {
+    margin-top: 20px;
+    font-size: 25px;
+    height: 50px;
+    width: 150px;
+  }
+}
+

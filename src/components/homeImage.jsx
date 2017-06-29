@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CSSModules from 'react-css-modules';
 import styles from 'styles/homeImage.scss';
 
-const BackgroundImage = () => (
+const HomeImage = () => (
   <div styleName="background-image">
     <div className="container">
       <div>
@@ -11,20 +12,30 @@ const BackgroundImage = () => (
             FINANCIAL
           </span>
         </h1>
+        <h1 styleName="text-middle">
+          <span styleName="text-box">
+            EMPOWERMENT
+          </span>
+        </h1>
         <h1 styleName="text-bottom">
           <span styleName="text-box">
-            EMPOWERMENT FOUNDATION
+            FOUNDATION
           </span>
         </h1>
         <h1 styleName="text-small">
           <span styleName="text-box-white">
-            Working to increase minority presence in the business world
+            Working to increase the minority presence
           </span>
         </h1>
-        <a styleName="button-donate" className="btn btn-secondary">Donate</a>
+        <h1 styleName="text-small-bottom">
+          <span styleName="text-box-white">
+            in the business world
+          </span>
+        </h1>
+        <Link to="/get-involved" styleName="button-donate" className="btn btn-primary">Donate</Link>
       </div>
     </div>
   </div>
 );
 
-export default CSSModules(BackgroundImage, styles);
+export default CSSModules(HomeImage, styles);

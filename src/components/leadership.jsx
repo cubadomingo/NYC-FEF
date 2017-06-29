@@ -8,9 +8,8 @@ import portrait3 from 'assets/images/portrait3.jpg';
 const Leadership = () => (
   <div styleName="leadership" className="container">
     <h2 className="text-center">Who We Are</h2>
-    <br />
     <div className="row">
-      <div className="col-lg-4 text-center">
+      <div className="col-lg-4 text-center" styleName="leader">
         <img alt="" styleName="portrait" src={portrait} />
         <div styleName="box">
           <h2>Christian Matthews</h2>
@@ -23,7 +22,7 @@ const Leadership = () => (
           </p>
         </div>
       </div>
-      <div className="col-lg-4 text-center">
+      <div className="col-lg-4 text-center" styleName="leader">
         <img alt="" styleName="portrait" src={portrait2} />
         <div styleName="box">
           <h2>Alex Johnson</h2>
@@ -36,7 +35,7 @@ const Leadership = () => (
           </p>
         </div>
       </div>
-      <div className="col-lg-4 text-center">
+      <div className="col-lg-4 text-center" styleName="leader">
         <img alt="" styleName="portrait" src={portrait3} />
         <div styleName="box">
           <h2>Jessica Sampson</h2>

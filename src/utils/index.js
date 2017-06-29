@@ -5,7 +5,7 @@ export const setInitialStyles = () => {
   html.minHeight = '100%';
   html.position = 'relative';
   html.paddingTop = '80px';
-  html.paddingBottom = '302px';
+  html.paddingBottom = '160px';
 };
 
 export const checkToken = (store) => {

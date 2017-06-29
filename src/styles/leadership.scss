@@ -3,8 +3,8 @@
 .leadership {
   font-family: 'Poppins', sans-serif;
   border-top: solid 1px black;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .portrait {
@@ -13,11 +13,23 @@
 }
 
 .box {
+  color: white;
   margin-top: -100px;
   padding-top: 120px;
   padding-left: 20px;
   padding-right: 20px;
-  height: 380px;
-  background-color: #e5e5e5;
+  height: 300px;
+  background-color: #0275d8;
   border-radius: 10px;
 }
+
+.leader {
+  margin-top: 40px;
+}
+
+@media (min-width: 992px) {
+  .box {
+    height: 450px;
+  }
+}
+
