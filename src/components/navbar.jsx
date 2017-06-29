@@ -18,9 +18,11 @@ export class Navbar extends Component {
   }
 
   toggleNavbar() {
-    this.setState({
-      toggleNavbar: !this.state.toggleNavbar,
-    });
+    if (window.innerWidth < 992) {
+      this.setState({
+        toggleNavbar: !this.state.toggleNavbar,
+      });
+    }
   }
 
   render() {
