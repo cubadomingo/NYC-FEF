@@ -2,9 +2,15 @@
 
 .navbar {
   font-family: 'Poppins', sans-serif;
-  height: 80px;
+  min-height: 80px;
+  padding-top: 20px;
   background-color: white;
   opacity:0.95;
+}
+
+.navbar-menu {
+  margin-top: 20px;
+  background-color: white;
 }
 
 .navbar-button-solid {
@@ -17,15 +23,24 @@
   color: black;
 }
 
-.navbar-button {
-  cursor: pointer;
+.sign-out-button {
   border-color: black;
 }
 
-.navbar-button:hover {
+.sign-out-button:hover {
   border-color: black;
 }
 
 .nav-link-margin {
   margin-top: 7px;
+}
+
+@media (min-width: 992px) {
+  .navbar {
+    padding-top: 0px;
+  }
+
+  .navbar-menu {
+    margin-top: 0px;
+  }
 }
