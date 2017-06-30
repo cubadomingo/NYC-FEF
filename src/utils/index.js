@@ -4,7 +4,7 @@ export const setInitialStyles = () => {
   const html = document.documentElement.style;
   html.minHeight = '100%';
   html.position = 'relative';
-  html.paddingTop = '80px';
+  html.paddingTop = '70px';
   html.paddingBottom = '160px';
 };
 

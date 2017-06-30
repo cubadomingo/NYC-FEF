@@ -40,6 +40,7 @@ export class Navbar extends Component {
         </button>
         <Link
           onClick={() => { this.toggleNavbar(); }}
+          styleName="navbar-brand"
           className="navbar-brand"
           to="/"
         >

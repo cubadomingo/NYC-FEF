@@ -2,10 +2,15 @@
 
 .navbar {
   font-family: 'Poppins', sans-serif;
-  min-height: 80px;
-  padding-top: 20px;
+  min-height: 70px;
+  padding-top: 15px;
   background-color: white;
   opacity:0.95;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  visibility: hidden;
 }
 
 .navbar-menu {
@@ -35,9 +40,20 @@
   margin-top: 7px;
 }
 
+@media (min-width: 500px) {
+  .navbar-brand {
+    font-size: 20px;
+    visibility: visible;
+  }
+}
+
 @media (min-width: 992px) {
   .navbar {
     padding-top: 0px;
+  }
+
+  .navbar-brand {
+    font-size: 25px;
   }
 
   .navbar-menu {
