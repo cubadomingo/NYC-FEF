@@ -12,7 +12,7 @@ const Leadership = () => (
       <div className="col-lg-4 text-center" styleName="leader">
         <img alt="" styleName="portrait" src={portrait} />
         <div styleName="box">
-          <h2>Christian Matthews</h2>
+          <h4>Christian Matthews</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quam
             mauris, ornare vitae sodales non, condimentum at eros. Aliquam
@@ -25,7 +25,7 @@ const Leadership = () => (
       <div className="col-lg-4 text-center" styleName="leader">
         <img alt="" styleName="portrait" src={portrait2} />
         <div styleName="box">
-          <h2>Alex Johnson</h2>
+          <h4>Alex Johnson</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quam
             mauris, ornare vitae sodales non, condimentum at eros. Aliquam
@@ -38,7 +38,7 @@ const Leadership = () => (
       <div className="col-lg-4 text-center" styleName="leader">
         <img alt="" styleName="portrait" src={portrait3} />
         <div styleName="box">
-          <h2>Jessica Sampson</h2>
+          <h4>Jessica Sampson</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quam
             mauris, ornare vitae sodales non, condimentum at eros. Aliquam

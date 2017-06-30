@@ -4,7 +4,7 @@ import styles from 'styles/faq.scss';
 
 const FAQ = () => (
   <div styleName="FAQ">
-    <div styleName="FAQ-container" className="container">
+    <div className="container">
       <div styleName="text-box">
         <h2 className="text-center">Frequently Asked Questions</h2>
       </div>

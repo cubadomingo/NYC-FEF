@@ -24,12 +24,12 @@ const HomeImage = () => (
         </h1>
         <h1 styleName="text-small">
           <span styleName="text-box-white">
-            Working to increase the minority presence
+            Working to increase the minority
           </span>
         </h1>
         <h1 styleName="text-small-bottom">
           <span styleName="text-box-white">
-            in the business world
+            presence in the business world
           </span>
         </h1>
         <Link to="/get-involved" styleName="button-donate" className="btn btn-primary">Donate</Link>
