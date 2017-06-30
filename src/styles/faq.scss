@@ -1,16 +1,13 @@
 .FAQ {
+  color: white;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #e5e5e5;
-}
-
-.FAQ-container {
-  padding-left: 100px;
-  padding-right: 100px;
+  background-color: #0275d8;
 }
 
 .question {
   h4 {
+    font-size: 20px;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
   }
@@ -25,3 +22,4 @@
   margin-bottom: 20px;
   border-bottom: solid black 1px;
 }
+
